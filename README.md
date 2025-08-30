@@ -1,1 +1,1 @@
-# penguin-fashion-with-tailwind
+# Penguin Fashion
