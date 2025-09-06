@@ -16,3 +16,19 @@
 - Social Media Integration: Share products across platforms
 
 ## Technology Stack
+
+- Frontend Framework: HTML5, CSS3, JavaScript (ES6+)
+- CSS Framework: Tailwind CSS with DaisyUI components
+- Icons: Font Awesome 6.0
+- Fonts: Google Fonts (Bebas Neue, Oswald, Roboto)
+- Build Tool: Vite (for development and building)
+- Deployment: Netlify (with CI/CD pipeline)
+
+## Responsive Design
+
+PenguinFashion is meticulously designed to provide an optimal viewing experience across a wide range of devices:
+
+- Mobile: 320px and up
+- Tablet: 768px and up
+- Laptop: 1024px and up
+- Desktop: 1280px and up
