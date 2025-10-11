@@ -18,7 +18,7 @@ Table of contents
 - Contributing
 - License & credits
 
-## What this project is
+## What this project is:
 
 Penguin Fashion is a small static site template showcasing a minimal, modern landing page for a clothing/brand concept. It's intentionally lightweight and uses Tailwind CSS for rapid styling without custom CSS frameworks. The repository is ideal as:
 
