@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop All Products | PenguinFashion</title>
+    <meta
+      name="description"
+      content="Browse our complete winter wear collection. Jackets, coats, accessories and more for men and women."
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/auth.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+
+    <!-- Tailwind CSS with DaisyUI -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@3.1.0/dist/full.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@300;500&family=Roboto:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Theme Switcher -->
+    <div class="fixed top-5 right-5 z-50 theme-switcher">
+      <div class="dropdown dropdown-end">
+        <button id="theme-toggle" class="btn btn-circle btn-primary shadow-lg">
+          <i id="theme-icon" class="fas fa-moon"></i>
+        </button>
+        <div id="theme-dropdown" class="theme-dropdown">
+          <!-- Theme options will be populated by JavaScript -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Cart Notification -->
+    <div class="cart-notification">
+      <div class="alert alert-success shadow-lg max-w-sm">
+        <div class="flex items-center">
+          <i class="fas fa-check-circle mr-2"></i>
+          <span>Item added to cart!</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search Modal -->
+    <div id="search-modal" class="search-modal">
+      <div class="search-container">
+        <button
+          id="search-close"
+          class="btn btn-ghost btn-circle absolute top-4 right-4"
+        >
+          <i class="fas fa-times"></i>
+        </button>
+        <h2 class="text-2xl font-bold mb-6">Search Products</h2>
+        <div class="form-control">
+          <div class="input-group">
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Search for jackets, coats, accessories..."
+              class="input input-bordered w-full"
+            />
+            <button class="btn btn-primary">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+        <div id="search-results" class="mt-4 max-h-60 overflow-y-auto hidden">
+          <!-- Search results will be populated by JavaScript -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Auth Modal -->
+    <div id="auth-modal" class="auth-modal">
+      <!-- Same auth modal content as index.html -->
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu">
+      <!-- Same mobile menu content as index.html -->
+    </div>
+
+    <!-- Header/Navigation -->
+    <header
+      class="sticky top-0 z-40 bg-base-100/80 backdrop-blur-md border-b border-base-300"
+    >
+      <div class="container mx-auto px-4">
+        <div class="navbar py-3">
+          <!-- Mobile menu button -->
+          <div class="navbar-start">
+            <button id="mobile-menu-btn" class="btn btn-ghost lg:hidden">
+              <i class="fas fa-bars text-xl"></i>
+            </button>
+            <a href="../index.html" class="penguin-logo ml-2 lg:ml-0"
+              >PENGUIN FASHION</a
+            >
+          </div>
+
+          <!-- Desktop Navigation -->
+          <div class="navbar-center hidden lg:flex">
+            <ul class="menu menu-horizontal px-1 space-x-1">
+              <li class="nav-item">
+                <a href="../index.html" class="nav-link">Home</a>
+              </li>
+              <li class="nav-item relative">
+                <a href="shop.html" class="nav-link active">Shop</a>
+                <div class="mega-menu">
+                  <div class="grid grid-cols-4 gap-8">
+                    <div class="mega-menu-column">
+                      <h4>Men's Collection</h4>
+                      <div class="mega-menu-links">
+                        <a href="#men-jackets">Jackets & Coats</a>
+                        <a href="#men-sweaters">Sweaters & Hoodies</a>
+                        <a href="#men-pants">Winter Pants</a>
+                        <a href="#men-accessories">Accessories</a>
+                      </div>
+                    </div>
+                    <div class="mega-menu-column">
+                      <h4>Women's Collection</h4>
+                      <div class="mega-menu-links">
+                        <a href="#women-jackets">Jackets & Coats</a>
+                        <a href="#women-sweaters">Sweaters & Cardigans</a>
+                        <a href="#women-dresses">Winter Dresses</a>
+                        <a href="#women-accessories">Accessories</a>
+                      </div>
+                    </div>
+                    <div class="mega-menu-column">
+                      <h4>Accessories</h4>
+                      <div class="mega-menu-links">
+                        <a href="#hats">Hats & Beanies</a>
+                        <a href="#scarves">Scarves & Gloves</a>
+                        <a href="#boots">Winter Boots</a>
+                        <a href="#socks">Thermal Socks</a>
+                      </div>
+                    </div>
+                    <div class="mega-menu-column">
+                      <h4>Featured</h4>
+                      <div class="mega-menu-links">
+                        <a href="#new-arrivals">New Arrivals</a>
+                        <a href="#best-sellers">Best Sellers</a>
+                        <a href="#sale">Sale Items</a>
+                        <a href="#gift-cards">Gift Cards</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a href="categories.html" class="nav-link">Categories</a>
+              </li>
+              <li class="nav-item">
+                <a href="../index.html#deals" class="nav-link">Deals</a>
+              </li>
+              <li class="nav-item">
+                <a href="about.html" class="nav-link">About</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Right side icons -->
+          <div class="navbar-end space-x-2">
+            <!-- Search -->
+            <button id="search-btn" class="btn btn-ghost btn-circle">
+              <i class="fas fa-search"></i>
+            </button>
+
+            <!-- User Account -->
+            <div class="dropdown dropdown-end">
+              <button class="btn btn-ghost btn-circle auth-btn sign-in-btn">
+                <i class="fas fa-user"></i>
+              </button>
+              <button
+                class="btn btn-ghost btn-circle auth-btn profile-btn hidden"
+              >
+                <div class="avatar online">
+                  <div class="w-8 h-8 rounded-full user-avatar"></div>
+                </div>
+              </button>
+              <ul
+                tabindex="0"
+                class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+              >
+                <li class="user-element hidden">
+                  <a class="justify-between">
+                    <span class="user-name">User Name</span>
+                    <span class="badge badge-primary">New</span>
+                  </a>
+                </li>
+                <li class="user-element hidden"><a>Profile</a></li>
+                <li class="user-element hidden"><a>Orders</a></li>
+                <li class="user-element hidden"><a>Wishlist</a></li>
+                <li class="user-element hidden"><a>Settings</a></li>
+                <li class="user-element hidden">
+                  <a id="logout-btn">Logout</a>
+                </li>
+                <li class="guest-element"><a class="auth-btn">Sign In</a></li>
+                <li class="guest-element">
+                  <a class="auth-btn">Create Account</a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Shopping Cart -->
+            <div class="dropdown dropdown-end">
+              <button class="btn btn-ghost btn-circle">
+                <div class="indicator">
+                  <i class="fas fa-shopping-cart"></i>
+                  <span
+                    class="badge badge-xs badge-primary indicator-item cart-count"
+                    >0</span
+                  >
+                </div>
+              </button>
+              <div
+                tabindex="0"
+                class="mt-3 z-[1] card card-compact dropdown-content cart-dropdown-content w-80 bg-base-100 shadow"
+              >
+                <!-- Cart items will be populated by JavaScript -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Shop Header -->
+    <section class="bg-base-200 py-12">
+      <div class="container mx-auto px-4">
+        <div class="text-center">
+          <h1 class="text-4xl lg:text-6xl font-bold mb-4 title-font">
+            SHOP ALL PRODUCTS
+          </h1>
+          <p class="text-xl text-base-content/70 max-w-2xl mx-auto">
+            Discover our complete winter collection. From jackets to
+            accessories, find everything you need for the cold season.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Shop Controls -->
+    <section class="py-8 bg-base-100 border-b border-base-300">
+      <div class="container mx-auto px-4">
+        <div
+          class="flex flex-col lg:flex-row justify-between items-center gap-4"
+        >
+          <!-- Filter Buttons -->
+          <div class="flex flex-wrap gap-2">
+            <button
+              class="btn btn-outline btn-sm category-filter active"
+              data-category="all"
+            >
+              All Products
+            </button>
+            <button
+              class="btn btn-outline btn-sm category-filter"
+              data-category="men"
+            >
+              Men
+            </button>
+            <button
+              class="btn btn-outline btn-sm category-filter"
+              data-category="women"
+            >
+              Women
+            </button>
+            <button
+              class="btn btn-outline btn-sm category-filter"
+              data-category="accessories"
+            >
+              Accessories
+            </button>
+            <button
+              class="btn btn-outline btn-sm category-filter"
+              data-category="footwear"
+            >
+              Footwear
+            </button>
+          </div>
+
+          <!-- Sort and Search -->
+          <div class="flex flex-wrap items-center gap-4">
+            <div class="form-control">
+              <div class="input-group input-group-sm">
+                <input
+                  type="text"
+                  id="product-search"
+                  placeholder="Search products..."
+                  class="input input-bordered input-sm"
+                />
+                <button class="btn btn-primary btn-sm">
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="dropdown dropdown-end">
+              <button class="btn btn-outline btn-sm">
+                <i class="fas fa-sort mr-2"></i>Sort By
+              </button>
+              <ul
+                class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+              >
+                <li><a class="sort-option" data-sort="name">Name A-Z</a></li>
+                <li>
+                  <a class="sort-option" data-sort="price-low"
+                    >Price: Low to High</a
+                  >
+                </li>
+                <li>
+                  <a class="sort-option" data-sort="price-high"
+                    >Price: High to Low</a
+                  >
+                </li>
+                <li>
+                  <a class="sort-option" data-sort="rating">Highest Rated</a>
+                </li>
+                <li>
+                  <a class="sort-option" data-sort="newest">Newest First</a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="dropdown dropdown-end">
+              <button class="btn btn-outline btn-sm">
+                <i class="fas fa-filter mr-2"></i>Filter
+              </button>
+              <div
+                class="dropdown-content z-[1] menu p-4 shadow bg-base-100 rounded-box w-80"
+              >
+                <div class="space-y-4">
+                  <div>
+                    <h4 class="font-semibold mb-2">Price Range</h4>
+                    <input
+                      type="range"
+                      min="0"
+                      max="1000"
+                      value="1000"
+                      class="range range-primary range-sm"
+                      id="price-range"
+                    />
+                    <div class="flex justify-between text-xs">
+                      <span>$0</span>
+                      <span id="price-display">Up to $1000</span>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 class="font-semibold mb-2">Rating</h4>
+                    <div class="space-y-2">
+                      <button
+                        class="btn btn-ghost btn-sm rating-filter active"
+                        data-rating="0"
+                      >
+                        All Ratings
+                      </button>
+                      <button
+                        class="btn btn-ghost btn-sm rating-filter"
+                        data-rating="4"
+                      >
+                        4★ & Up
+                      </button>
+                      <button
+                        class="btn btn-ghost btn-sm rating-filter"
+                        data-rating="3"
+                      >
+                        3★ & Up
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="py-12 bg-base-100">
+      <div class="container mx-auto px-4">
+        <div class="flex justify-between items-center mb-8">
+          <h2 class="text-2xl font-bold">
+            <span id="products-count">24</span> Products Found
+          </h2>
+          <div class="text-sm text-base-content/70">
+            Showing <span id="showing-count">1-12</span> of
+            <span id="total-count">24</span>
+          </div>
+        </div>
+
+        <div
+          id="products-container"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
+        >
+          <!-- Products will be populated by JavaScript -->
+        </div>
+
+        <!-- Pagination -->
+        <div class="flex justify-center mt-12">
+          <div class="join">
+            <button class="join-item btn btn-outline">«</button>
+            <button class="join-item btn btn-active">1</button>
+            <button class="join-item btn btn-outline">2</button>
+            <button class="join-item btn btn-outline">3</button>
+            <button class="join-item btn btn-outline">4</button>
+            <button class="join-item btn btn-outline">»</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-20 bg-primary text-primary-content">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-4xl lg:text-5xl font-bold mb-4 title-font">
+          Stay Updated
+        </h2>
+        <p class="text-xl mb-8 max-w-2xl mx-auto">
+          Get notified about new arrivals, exclusive deals, and winter fashion
+          tips.
+        </p>
+
+        <form class="max-w-md mx-auto">
+          <div class="form-control">
+            <div class="input-group justify-center">
+              <input
+                type="email"
+                placeholder="Your email address"
+                class="input input-bordered w-full"
+                required
+              />
+              <button type="submit" class="btn btn-accent">
+                <i class="fas fa-paper-plane mr-2"></i>Subscribe
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer p-10 bg-neutral text-neutral-content">
+      <div class="container mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div>
+            <a class="penguin-logo text-white mb-4">PENGUIN FASHION</a>
+            <p class="mb-4">
+              Premium winter wear for every adventure. Stay warm, stay stylish
+              with Penguin Fashion.
+            </p>
+            <div class="social-icons">
+              <a href="#" class="social-icon">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-pinterest"></i>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <span class="footer-title">Shop</span>
+            <div class="footer-links">
+              <a href="#men-jackets">Men's Collection</a>
+              <a href="#women-jackets">Women's Collection</a>
+              <a href="#accessories">Accessories</a>
+              <a href="#footwear">Footwear</a>
+              <a href="#new-arrivals">New Arrivals</a>
+              <a href="#best-sellers">Best Sellers</a>
+            </div>
+          </div>
+
+          <div>
+            <span class="footer-title">Customer Service</span>
+            <div class="footer-links">
+              <a href="#contact">Contact Us</a>
+              <a href="#shipping">Shipping Info</a>
+              <a href="#returns">Returns & Exchanges</a>
+              <a href="#size-guide">Size Guide</a>
+              <a href="#care-guide">Care Guide</a>
+              <a href="#faq">FAQ</a>
+            </div>
+          </div>
+
+          <div>
+            <span class="footer-title">Company</span>
+            <div class="footer-links">
+              <a href="about.html">About Us</a>
+              <a href="#story">Our Story</a>
+              <a href="#sustainability">Sustainability</a>
+              <a href="#careers">Careers</a>
+              <a href="#press">Press</a>
+              <a href="#affiliates">Affiliate Program</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="border-t border-base-300 mt-12 pt-8">
+          <div class="flex flex-col lg:flex-row justify-between items-center">
+            <div class="text-center lg:text-left mb-4 lg:mb-0">
+              <p>&copy; 2024 Penguin Fashion. All rights reserved.</p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-4">
+              <a href="#privacy" class="link link-hover">Privacy Policy</a>
+              <a href="#terms" class="link link-hover">Terms of Service</a>
+              <a href="#cookies" class="link link-hover">Cookie Policy</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../js/theme.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/cart.js"></script>
+    <script src="../js/products.js"></script>
+    <script src="../js/script.js"></script>
+
+    <script>
+      // Shop-specific JavaScript
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initialize shop functionality
+        const shopManager = new ProductManager();
+
+        // Enhanced filtering for shop page
+        const priceRange = document.getElementById("price-range");
+        if (priceRange) {
+          priceRange.addEventListener("input", function (e) {
+            const maxPrice = parseInt(e.target.value);
+            document.getElementById(
+              "price-display"
+            ).textContent = `Up to $${maxPrice}`;
+            shopManager.filters.priceRange[1] = maxPrice;
+            shopManager.applyFilters();
+          });
+        }
+
+        // Sort options
+        document.querySelectorAll(".sort-option").forEach((option) => {
+          option.addEventListener("click", function (e) {
+            e.preventDefault();
+            const sortBy = this.dataset.sort;
+            shopManager.filters.sortBy = sortBy;
+            shopManager.applyFilters();
+
+            // Update UI
+            document
+              .querySelectorAll(".sort-option")
+              .forEach((opt) => opt.classList.remove("active"));
+            this.classList.add("active");
+          });
+        });
+
+        // Rating filters
+        document.querySelectorAll(".rating-filter").forEach((button) => {
+          button.addEventListener("click", function () {
+            const rating = parseInt(this.dataset.rating);
+            shopManager.filterByRating(rating);
+
+            // Update UI
+            document
+              .querySelectorAll(".rating-filter")
+              .forEach((btn) => btn.classList.remove("active"));
+            this.classList.add("active");
+          });
+        });
+
+        // Category filters
+        document.querySelectorAll(".category-filter").forEach((button) => {
+          button.addEventListener("click", function () {
+            const category = this.dataset.category;
+            shopManager.filterByCategory(category);
+
+            // Update UI
+            document
+              .querySelectorAll(".category-filter")
+              .forEach((btn) => btn.classList.remove("active"));
+            this.classList.add("active");
+          });
+        });
+
+        // Search functionality
+        const searchInput = document.getElementById("product-search");
+        if (searchInput) {
+          searchInput.addEventListener("input", function (e) {
+            shopManager.searchProducts(e.target.value);
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -3,18 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PenguinFashion | Premium Winter Wear</title>
-    <!-- Tailwind CSS With DaisyUI -->
+    <title>PenguinFashion | Premium Winter Wear E-Commerce</title>
+    <meta
+      name="description"
+      content="Discover premium winter wear at PenguinFashion. Stay warm and stylish with our curated collection of jackets, coats, and accessories."
+    />
+    <meta
+      name="keywords"
+      content="winter wear, jackets, coats, fashion, e-commerce, penguin fashion"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/auth.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+
+    <!-- Tailwind CSS with DaisyUI -->
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@3.1.0/dist/full.css"
       rel="stylesheet"
     />
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome for icons -->
+
+    <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,283 +38,476 @@
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@300;500&family=Roboto:wght@400;500;700;900&display=swap"
       rel="stylesheet"
     />
-    <style>
-      :root {
-        --primary: #3d8361;
-        --secondary: #1c6758;
-        --accent: #d6cda4;
-        --dark: #1e1e1e;
-        --light: #eef2e6;
-      }
 
-      body {
-        font-family: "Roboto", sans-serif;
-        transition: all 0.3s ease;
-      }
-
-      h1,
-      h2,
-      h3,
-      h4 {
-        font-family: "Bebas Neue", cursive;
-        letter-spacing: 1px;
-      }
-
-      .title-font {
-        font-family: "Bebas Neue", cursive;
-        letter-spacing: 1px;
-      }
-
-      .hero-bg {
-        background: linear-gradient(
-            120deg,
-            rgba(209, 236, 225, 0.7) 0%,
-            rgba(161, 218, 193, 0.7) 100%
-          ),
-          url("https://images.unsplash.com/photo-1519457431-44ccd64a579b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80")
-            center/cover;
-      }
-
-      .penguin-logo {
-        font-family: "Bebas Neue", cursive;
-        color: var(--primary);
-        font-size: 2.5rem;
-        letter-spacing: 2px;
-      }
-
-      .discount-badge {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        background: var(--primary);
-        color: white;
-        padding: 5px 10px;
-        border-radius: 20px;
-        font-size: 0.8rem;
-        font-weight: bold;
-      }
-
-      .product-card {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-
-      .product-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-      }
-
-      .cart-notification {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        z-index: 100;
-        opacity: 0;
-        transform: translateY(100px);
-        transition: all 0.5s ease;
-      }
-
-      .cart-notification.show {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      .feature-icon {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        background: var(--accent);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 15px;
-      }
-
-      /* Animation for theme switch */
-      .theme-switch {
-        transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-      }
-
-      /* Custom scrollbar */
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-
-      ::-webkit-scrollbar-track {
-        background: #f1f1f1;
-      }
-
-      ::-webkit-scrollbar-thumb {
-        background: var(--primary);
-        border-radius: 10px;
-      }
-
-      ::-webkit-scrollbar-thumb:hover {
-        background: var(--secondary);
-      }
-
-      /* Animation for product cards */
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .animate-fadeInUp {
-        animation: fadeInUp 0.6s ease forwards;
-      }
-
-      /* Animation delay for staggered effect */
-      .delay-100 {
-        animation-delay: 0.1s;
-      }
-
-      .delay-200 {
-        animation-delay: 0.2s;
-      }
-
-      .delay-300 {
-        animation-delay: 0.3s;
-      }
-
-      .delay-400 {
-        animation-delay: 0.4s;
-      }
-
-      /* Dark mode styles */
-      [data-theme="dark"] {
-        --primary: #4caf87;
-        --secondary: #2d8e72;
-        --accent: #e3d9b7;
-        --dark: #121212;
-        --light: #2a2a2a;
-      }
-
-      [data-theme="dark"] body {
-        background-color: var(--dark);
-        color: #e0e0e0;
-      }
-
-      [data-theme="dark"] .card {
-        background-color: #2a2a2a;
-        color: #e0e0e0;
-      }
-
-      [data-theme="dark"] .hero-bg {
-        background: linear-gradient(
-            120deg,
-            rgba(30, 30, 30, 0.8) 0%,
-            rgba(45, 45, 45, 0.8) 100%
-          ),
-          url("https://images.unsplash.com/photo-1519457431-44ccd64a579b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80")
-            center/cover;
-      }
-    </style>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/logo.png" />
   </head>
   <body>
     <!-- Theme Switcher -->
-    <div class="fixed top-5 right-5 z-50">
-      <button id="theme-toggle" class="btn btn-circle theme-switch">
-        <i class="fas fa-moon"></i>
-      </button>
+    <div class="fixed top-5 right-5 z-50 theme-switcher">
+      <div class="dropdown dropdown-end">
+        <button id="theme-toggle" class="btn btn-circle btn-primary shadow-lg">
+          <i id="theme-icon" class="fas fa-moon"></i>
+        </button>
+        <div id="theme-dropdown" class="theme-dropdown">
+          <!-- Theme options will be populated by JavaScript -->
+        </div>
+      </div>
     </div>
 
-    <!-- Cart notification -->
+    <!-- Cart Notification -->
     <div class="cart-notification">
-      <div class="alert alert-success shadow-lg">
-        <div>
-          <i class="fas fa-check-circle"></i>
-          <span>Item added to cart successfully!</span>
+      <div class="alert alert-success shadow-lg max-w-sm">
+        <div class="flex items-center">
+          <i class="fas fa-check-circle mr-2"></i>
+          <span>Item added to cart!</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search Modal -->
+    <div id="search-modal" class="search-modal">
+      <div class="search-container">
+        <button
+          id="search-close"
+          class="btn btn-ghost btn-circle absolute top-4 right-4"
+        >
+          <i class="fas fa-times"></i>
+        </button>
+        <h2 class="text-2xl font-bold mb-6">Search Products</h2>
+        <div class="form-control">
+          <div class="input-group">
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Search for jackets, coats, accessories..."
+              class="input input-bordered w-full"
+            />
+            <button class="btn btn-primary">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+        <div id="search-results" class="mt-4 max-h-60 overflow-y-auto hidden">
+          <!-- Search results will be populated by JavaScript -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Auth Modal -->
+    <div id="auth-modal" class="auth-modal">
+      <div class="auth-container">
+        <button id="auth-close" class="auth-close">
+          <i class="fas fa-times"></i>
+        </button>
+
+        <div class="auth-tabs">
+          <button class="auth-tab active" data-tab="signin">Sign In</button>
+          <button class="auth-tab" data-tab="signup">Sign Up</button>
+        </div>
+
+        <!-- Sign In Form -->
+        <form id="signin-form" class="auth-form active">
+          <div class="form-group">
+            <label for="signin-email" class="form-label">Email Address</label>
+            <input
+              type="email"
+              id="signin-email"
+              name="email"
+              class="form-input"
+              placeholder="Enter your email"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="signin-password" class="form-label">Password</label>
+            <input
+              type="password"
+              id="signin-password"
+              name="password"
+              class="form-input"
+              placeholder="Enter your password"
+              required
+            />
+          </div>
+
+          <div class="form-options">
+            <label class="remember-me">
+              <input
+                type="checkbox"
+                name="remember"
+                class="checkbox checkbox-sm"
+              />
+              <span>Remember me</span>
+            </label>
+            <a href="#" class="forgot-password">Forgot password?</a>
+          </div>
+
+          <button type="submit" class="auth-btn">Sign In</button>
+
+          <div class="social-auth">
+            <div class="social-divider">
+              <span>Or continue with</span>
+            </div>
+            <div class="social-buttons">
+              <button
+                type="button"
+                class="social-btn google"
+                data-provider="google"
+              >
+                <i class="fab fa-google"></i> Google
+              </button>
+              <button
+                type="button"
+                class="social-btn facebook"
+                data-provider="facebook"
+              >
+                <i class="fab fa-facebook"></i> Facebook
+              </button>
+              <button
+                type="button"
+                class="social-btn twitter"
+                data-provider="twitter"
+              >
+                <i class="fab fa-twitter"></i> Twitter
+              </button>
+              <button
+                type="button"
+                class="social-btn github"
+                data-provider="github"
+              >
+                <i class="fab fa-github"></i> GitHub
+              </button>
+              <button
+                type="button"
+                class="social-btn linkedin"
+                data-provider="linkedin"
+              >
+                <i class="fab fa-linkedin"></i> LinkedIn
+              </button>
+              <button
+                type="button"
+                class="social-btn apple"
+                data-provider="apple"
+              >
+                <i class="fab fa-apple"></i> Apple
+              </button>
+            </div>
+          </div>
+
+          <div class="auth-footer">
+            Don't have an account?
+            <button type="button" class="auth-switch" id="show-signup">
+              Sign Up
+            </button>
+          </div>
+        </form>
+
+        <!-- Sign Up Form -->
+        <form id="signup-form" class="auth-form">
+          <div class="form-group">
+            <label for="signup-name" class="form-label">Full Name</label>
+            <input
+              type="text"
+              id="signup-name"
+              name="name"
+              class="form-input"
+              placeholder="Enter your full name"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="signup-email" class="form-label">Email Address</label>
+            <input
+              type="email"
+              id="signup-email"
+              name="email"
+              class="form-input"
+              placeholder="Enter your email"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="signup-password" class="form-label">Password</label>
+            <input
+              type="password"
+              id="signup-password"
+              name="password"
+              class="form-input"
+              placeholder="Create a password"
+              required
+            />
+            <div class="password-strength">
+              <div class="strength-bar">
+                <div class="strength-fill"></div>
+              </div>
+              <div class="strength-text">Password strength</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="signup-confirmPassword" class="form-label"
+              >Confirm Password</label
+            >
+            <input
+              type="password"
+              id="signup-confirmPassword"
+              name="confirmPassword"
+              class="form-input"
+              placeholder="Confirm your password"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="cursor-pointer flex items-start space-x-3">
+              <input
+                type="checkbox"
+                name="terms"
+                class="checkbox checkbox-sm mt-1"
+                required
+              />
+              <span class="label-text"
+                >I agree to the
+                <a href="#" class="link link-primary">Terms of Service</a> and
+                <a href="#" class="link link-primary">Privacy Policy</a></span
+              >
+            </label>
+          </div>
+
+          <button type="submit" class="auth-btn">Create Account</button>
+
+          <div class="social-auth">
+            <div class="social-divider">
+              <span>Or sign up with</span>
+            </div>
+            <div class="social-buttons">
+              <button
+                type="button"
+                class="social-btn google"
+                data-provider="google"
+              >
+                <i class="fab fa-google"></i> Google
+              </button>
+              <button
+                type="button"
+                class="social-btn facebook"
+                data-provider="facebook"
+              >
+                <i class="fab fa-facebook"></i> Facebook
+              </button>
+              <button
+                type="button"
+                class="social-btn twitter"
+                data-provider="twitter"
+              >
+                <i class="fab fa-twitter"></i> Twitter
+              </button>
+              <button
+                type="button"
+                class="social-btn github"
+                data-provider="github"
+              >
+                <i class="fab fa-github"></i> GitHub
+              </button>
+              <button
+                type="button"
+                class="social-btn linkedin"
+                data-provider="linkedin"
+              >
+                <i class="fab fa-linkedin"></i> LinkedIn
+              </button>
+              <button
+                type="button"
+                class="social-btn apple"
+                data-provider="apple"
+              >
+                <i class="fab fa-apple"></i> Apple
+              </button>
+            </div>
+          </div>
+
+          <div class="auth-footer">
+            Already have an account?
+            <button type="button" class="auth-switch" id="show-signin">
+              Sign In
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu">
+      <div class="mobile-menu-header">
+        <a class="penguin-logo">PENGUIN FASHION</a>
+        <button id="mobile-menu-close" class="btn btn-ghost btn-circle">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="mobile-nav-links">
+        <a href="#home" class="mobile-nav-link">Home</a>
+        <a href="pages/shop.html" class="mobile-nav-link">Shop</a>
+        <a href="pages/categories.html" class="mobile-nav-link">Categories</a>
+        <a href="#deals" class="mobile-nav-link">Deals</a>
+        <a href="pages/about.html" class="mobile-nav-link">About</a>
+        <div class="mt-6 space-y-4">
+          <button class="btn btn-primary w-full auth-btn sign-in-btn">
+            <i class="fas fa-user mr-2"></i>Sign In
+          </button>
+          <div class="user-element hidden text-center">
+            <div class="avatar online mb-2">
+              <div class="w-12 h-12 rounded-full user-avatar"></div>
+            </div>
+            <p class="font-semibold user-name"></p>
+            <button class="btn btn-ghost btn-sm mt-2" id="logout-btn">
+              <i class="fas fa-sign-out-alt mr-1"></i>Logout
+            </button>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- Header/Navigation -->
-    <header class="sticky top-0 z-40 bg-base-100 shadow-md">
-      <div class="container mx-auto p-4">
-        <div class="navbar">
+    <header
+      class="sticky top-0 z-40 bg-base-100/80 backdrop-blur-md border-b border-base-300"
+    >
+      <div class="container mx-auto px-4">
+        <div class="navbar py-3">
+          <!-- Mobile menu button -->
           <div class="navbar-start">
-            <div class="dropdown">
-              <label tabindex="0" class="btn btn-ghost lg:hidden">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M4 6h16M4 12h8m-8 6h16"
-                  />
-                </svg>
-              </label>
-              <ul
-                tabindex="0"
-                class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-              >
-                <li><a>Home</a></li>
-                <li><a>Shop</a></li>
-                <li><a>Categories</a></li>
-                <li><a>Deals</a></li>
-                <li><a>About</a></li>
-              </ul>
-            </div>
-            <a class="penguin-logo">PENGUIN FASHION</a>
+            <button id="mobile-menu-btn" class="btn btn-ghost lg:hidden">
+              <i class="fas fa-bars text-xl"></i>
+            </button>
+            <a href="#home" class="penguin-logo ml-2 lg:ml-0"
+              >PENGUIN FASHION</a
+            >
           </div>
+
+          <!-- Desktop Navigation -->
           <div class="navbar-center hidden lg:flex">
-            <ul class="menu menu-horizontal px-1">
-              <li><a class="font-medium">Home</a></li>
-              <li><a class="font-medium">Shop</a></li>
-              <li><a class="font-medium">Categories</a></li>
-              <li><a class="font-medium">Deals</a></li>
-              <li><a class="font-medium">About</a></li>
-            </ul>
-          </div>
-          <div class="navbar-end">
-            <div class="flex items-center space-x-4">
-              <button class="btn btn-ghost btn-circle">
-                <i class="fas fa-search text-lg"></i>
-              </button>
-              <div class="dropdown dropdown-end">
-                <button class="btn btn-ghost btn-circle">
-                  <div class="indicator">
-                    <i class="fas fa-shopping-cart text-lg"></i>
-                    <span
-                      class="badge badge-xs badge-primary indicator-item"
-                      id="cart-count"
-                      >0</span
-                    >
-                  </div>
-                </button>
-                <div
-                  tabindex="0"
-                  class="mt-3 z-[1] card card-compact dropdown-content w-72 bg-base-100 shadow"
-                >
-                  <div class="card-body">
-                    <span class="font-bold text-lg" id="cart-items-count"
-                      >0 Items</span
-                    >
-                    <span class="text-info" id="cart-total"
-                      >Subtotal: $0.00</span
-                    >
-                    <div class="card-actions">
-                      <button class="btn btn-primary btn-block">
-                        View Cart
-                      </button>
+            <ul class="menu menu-horizontal px-1 space-x-1">
+              <li class="nav-item">
+                <a href="#home" class="nav-link active">Home</a>
+              </li>
+              <li class="nav-item relative">
+                <a href="pages/shop.html" class="nav-link">Shop</a>
+                <div class="mega-menu">
+                  <div class="grid grid-cols-4 gap-8">
+                    <div class="mega-menu-column">
+                      <h4>Men's Collection</h4>
+                      <div class="mega-menu-links">
+                        <a href="#men-jackets">Jackets & Coats</a>
+                        <a href="#men-sweaters">Sweaters & Hoodies</a>
+                        <a href="#men-pants">Winter Pants</a>
+                        <a href="#men-accessories">Accessories</a>
+                      </div>
+                    </div>
+                    <div class="mega-menu-column">
+                      <h4>Women's Collection</h4>
+                      <div class="mega-menu-links">
+                        <a href="#women-jackets">Jackets & Coats</a>
+                        <a href="#women-sweaters">Sweaters & Cardigans</a>
+                        <a href="#women-dresses">Winter Dresses</a>
+                        <a href="#women-accessories">Accessories</a>
+                      </div>
+                    </div>
+                    <div class="mega-menu-column">
+                      <h4>Accessories</h4>
+                      <div class="mega-menu-links">
+                        <a href="#hats">Hats & Beanies</a>
+                        <a href="#scarves">Scarves & Gloves</a>
+                        <a href="#boots">Winter Boots</a>
+                        <a href="#socks">Thermal Socks</a>
+                      </div>
+                    </div>
+                    <div class="mega-menu-column">
+                      <h4>Featured</h4>
+                      <div class="mega-menu-links">
+                        <a href="#new-arrivals">New Arrivals</a>
+                        <a href="#best-sellers">Best Sellers</a>
+                        <a href="#sale">Sale Items</a>
+                        <a href="#gift-cards">Gift Cards</a>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <button class="btn btn-primary hidden md:inline-flex">
-                Sign In
+              </li>
+              <li class="nav-item">
+                <a href="pages/categories.html" class="nav-link">Categories</a>
+              </li>
+              <li class="nav-item">
+                <a href="#deals" class="nav-link">Deals</a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/about.html" class="nav-link">About</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Right side icons -->
+          <div class="navbar-end space-x-2">
+            <!-- Search -->
+            <button id="search-btn" class="btn btn-ghost btn-circle">
+              <i class="fas fa-search"></i>
+            </button>
+
+            <!-- User Account -->
+            <div class="dropdown dropdown-end">
+              <button class="btn btn-ghost btn-circle auth-btn sign-in-btn">
+                <i class="fas fa-user"></i>
               </button>
+              <button
+                class="btn btn-ghost btn-circle auth-btn profile-btn hidden"
+              >
+                <div class="avatar online">
+                  <div class="w-8 h-8 rounded-full user-avatar"></div>
+                </div>
+              </button>
+              <ul
+                tabindex="0"
+                class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+              >
+                <li class="user-element hidden">
+                  <a class="justify-between">
+                    <span class="user-name">User Name</span>
+                    <span class="badge badge-primary">New</span>
+                  </a>
+                </li>
+                <li class="user-element hidden"><a>Profile</a></li>
+                <li class="user-element hidden"><a>Orders</a></li>
+                <li class="user-element hidden"><a>Wishlist</a></li>
+                <li class="user-element hidden"><a>Settings</a></li>
+                <li class="user-element hidden">
+                  <a id="logout-btn">Logout</a>
+                </li>
+                <li class="guest-element"><a class="auth-btn">Sign In</a></li>
+                <li class="guest-element">
+                  <a class="auth-btn">Create Account</a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Shopping Cart -->
+            <div class="dropdown dropdown-end">
+              <button class="btn btn-ghost btn-circle">
+                <div class="indicator">
+                  <i class="fas fa-shopping-cart"></i>
+                  <span
+                    class="badge badge-xs badge-primary indicator-item cart-count"
+                    >0</span
+                  >
+                </div>
+              </button>
+              <div
+                tabindex="0"
+                class="mt-3 z-[1] card card-compact dropdown-content cart-dropdown-content w-80 bg-base-100 shadow"
+              >
+                <!-- Cart items will be populated by JavaScript -->
+              </div>
             </div>
           </div>
         </div>
@@ -306,97 +515,186 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero-bg py-12 md:py-20">
+    <section id="home" class="hero-bg">
       <div class="container mx-auto px-4">
-        <div class="flex flex-col md:flex-row items-center justify-between">
-          <div class="md:w-1/2 mb-10 md:mb-0">
-            <h1 class="text-5xl md:text-6xl font-bold mb-4 title-font">
-              BE THE PENGUINS <br /><span class="text-primary">OF WINTER</span>
+        <div
+          class="flex flex-col lg:flex-row items-center justify-between min-h-[80vh]"
+        >
+          <div class="lg:w-1/2 text-center lg:text-left mb-12 lg:mb-0">
+            <h1
+              class="text-5xl lg:text-7xl font-bold mb-6 title-font animate-slideInLeft"
+            >
+              BE THE PENGUINS<br />
+              <span class="text-primary">OF WINTER</span>
             </h1>
-            <p class="text-lg mb-6">
+            <p
+              class="text-xl mb-8 text-base-content/80 max-w-2xl animate-slideInLeft delay-200"
+            >
               Discover our premium winter collection designed to keep you warm
               and stylish in the coldest weather. Quality materials, perfect
-              fit, and exceptional comfort.
+              fit, and exceptional comfort for every adventure.
             </p>
-            <div class="flex space-x-4">
-              <button class="btn btn-primary px-8">
-                <i class="fas fa-shopping-cart mr-2"></i>BUY NOW
+            <div
+              class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-slideInLeft delay-300"
+            >
+              <button class="btn btn-primary btn-lg px-8">
+                <i class="fas fa-shopping-cart mr-2"></i>SHOP NOW
               </button>
-              <button class="btn btn-outline px-8">Learn More</button>
+              <button class="btn btn-outline btn-lg px-8">
+                <i class="fas fa-play-circle mr-2"></i>WATCH STORY
+              </button>
+            </div>
+            <div
+              class="mt-12 grid grid-cols-3 gap-8 text-center animate-fadeInUp delay-500"
+            >
+              <div>
+                <div class="text-3xl font-bold text-primary">10K+</div>
+                <div class="text-sm text-base-content/70">Happy Customers</div>
+              </div>
+              <div>
+                <div class="text-3xl font-bold text-primary">5★</div>
+                <div class="text-sm text-base-content/70">Customer Rating</div>
+              </div>
+              <div>
+                <div class="text-3xl font-bold text-primary">50+</div>
+                <div class="text-sm text-base-content/70">Winter Products</div>
+              </div>
             </div>
           </div>
-          <div class="md:w-1/2">
-            <img
-              src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
-              alt="Winter Jacket"
-              class="rounded-lg shadow-2xl w-full"
-            />
+          <div class="lg:w-1/2 animate-slideInRight">
+            <div class="relative">
+              <img
+                src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
+                alt="Premium Winter Jacket"
+                class="rounded-2xl shadow-2xl w-full max-w-md mx-auto"
+              />
+              <div
+                class="absolute -bottom-6 -left-6 bg-primary text-white p-4 rounded-2xl shadow-xl"
+              >
+                <div class="text-2xl font-bold">30% OFF</div>
+                <div class="text-sm">Winter Collection</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Categories Section -->
-    <section class="py-12 bg-base-100">
+    <section id="categories" class="py-20 bg-base-100">
       <div class="container mx-auto px-4">
-        <h2 class="text-4xl font-bold text-center mb-10 title-font">
-          Shop by Category
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl lg:text-5xl font-bold mb-4 title-font">
+            Shop by Category
+          </h2>
+          <p class="text-xl text-base-content/70 max-w-2xl mx-auto">
+            Explore our carefully curated winter collections designed for every
+            style and adventure
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Men's Category -->
           <div
-            class="card image-full shadow-xl before:opacity-60 hover:before:opacity-80 transition-all duration-300"
+            class="card image-full shadow-xl h-96 hover:scale-105 transition-transform duration-300"
           >
             <figure>
               <img
                 src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-                alt="Men's Fashion"
+                alt="Men's Collection"
+                class="w-full h-full object-cover"
               />
             </figure>
             <div class="card-body justify-end text-center">
-              <h3 class="card-title justify-center text-white">Men</h3>
-              <button class="btn btn-ghost text-white">Explore</button>
+              <h3 class="card-title justify-center text-white text-3xl mb-2">
+                MEN
+              </h3>
+              <p class="text-white/80 mb-4">
+                Premium winter wear for the modern man
+              </p>
+              <a
+                href="pages/shop.html?category=men"
+                class="btn btn-ghost text-white hover:bg-white hover:text-primary"
+              >
+                Explore Collection
+              </a>
             </div>
           </div>
+
+          <!-- Women's Category -->
           <div
-            class="card image-full shadow-xl before:opacity-60 hover:before:opacity-80 transition-all duration-300"
+            class="card image-full shadow-xl h-96 hover:scale-105 transition-transform duration-300"
           >
             <figure>
               <img
                 src="https://images.unsplash.com/photo-1536678891919-e0e7d61a4b15?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
-                alt="Women's Fashion"
+                alt="Women's Collection"
+                class="w-full h-full object-cover"
               />
             </figure>
             <div class="card-body justify-end text-center">
-              <h3 class="card-title justify-center text-white">Women</h3>
-              <button class="btn btn-ghost text-white">Explore</button>
+              <h3 class="card-title justify-center text-white text-3xl mb-2">
+                WOMEN
+              </h3>
+              <p class="text-white/80 mb-4">Stylish and warm winter fashion</p>
+              <a
+                href="pages/shop.html?category=women"
+                class="btn btn-ghost text-white hover:bg-white hover:text-primary"
+              >
+                Explore Collection
+              </a>
             </div>
           </div>
+
+          <!-- Accessories Category -->
           <div
-            class="card image-full shadow-xl before:opacity-60 hover:before:opacity-80 transition-all duration-300"
+            class="card image-full shadow-xl h-96 hover:scale-105 transition-transform duration-300"
           >
             <figure>
               <img
                 src="https://images.unsplash.com/photo-1519241047957-be31d7379a5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
                 alt="Accessories"
+                class="w-full h-full object-cover"
               />
             </figure>
             <div class="card-body justify-end text-center">
-              <h3 class="card-title justify-center text-white">Accessories</h3>
-              <button class="btn btn-ghost text-white">Explore</button>
+              <h3 class="card-title justify-center text-white text-3xl mb-2">
+                ACCESSORIES
+              </h3>
+              <p class="text-white/80 mb-4">Complete your winter look</p>
+              <a
+                href="pages/shop.html?category=accessories"
+                class="btn btn-ghost text-white hover:bg-white hover:text-primary"
+              >
+                Explore Collection
+              </a>
             </div>
           </div>
+
+          <!-- Footwear Category -->
           <div
-            class="card image-full shadow-xl before:opacity-60 hover:before:opacity-80 transition-all duration-300"
+            class="card image-full shadow-xl h-96 hover:scale-105 transition-transform duration-300"
           >
             <figure>
               <img
                 src="https://images.unsplash.com/photo-1595341888016-a392ef81b7de?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1479&q=80"
                 alt="Footwear"
+                class="w-full h-full object-cover"
               />
             </figure>
             <div class="card-body justify-end text-center">
-              <h3 class="card-title justify-center text-white">Footwear</h3>
-              <button class="btn btn-ghost text-white">Explore</button>
+              <h3 class="card-title justify-center text-white text-3xl mb-2">
+                FOOTWEAR
+              </h3>
+              <p class="text-white/80 mb-4">
+                Warm and comfortable winter shoes
+              </p>
+              <a
+                href="pages/shop.html?category=footwear"
+                class="btn btn-ghost text-white hover:bg-white hover:text-primary"
+              >
+                Explore Collection
+              </a>
             </div>
           </div>
         </div>
@@ -404,38 +702,85 @@
     </section>
 
     <!-- Women's Jackets -->
-    <section class="py-12 bg-base-200">
+    <section id="women-jackets" class="py-20 bg-base-200">
       <div class="container mx-auto px-4">
-        <div class="flex justify-between items-center mb-10">
-          <h2 class="text-4xl font-bold title-font">WOMAN JACKET</h2>
-          <a href="#" class="text-primary hover:underline">View All</a>
+        <div
+          class="flex flex-col lg:flex-row justify-between items-center mb-12"
+        >
+          <div>
+            <h2 class="text-4xl lg:text-5xl font-bold title-font">
+              WOMEN'S JACKETS
+            </h2>
+            <p class="text-lg text-base-content/70 mt-2">
+              Stylish and warm jackets for every occasion
+            </p>
+          </div>
+          <div class="mt-4 lg:mt-0">
+            <a
+              href="pages/shop.html?category=women"
+              class="btn btn-outline btn-lg"
+            >
+              View All <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <!-- Product Card 1 -->
           <div class="card product-card bg-base-100 shadow-xl animate-fadeInUp">
             <figure class="px-4 pt-4">
-              <div class="relative">
+              <div class="product-image">
                 <img
                   src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=736&q=80"
                   alt="Yellow Coat Jacket"
                   class="rounded-xl h-64 w-full object-cover"
                 />
                 <div class="discount-badge">-20%</div>
+                <div class="product-actions">
+                  <button
+                    class="btn btn-circle btn-primary quick-view"
+                    data-product="1"
+                  >
+                    <i class="fas fa-eye"></i>
+                  </button>
+                  <button
+                    class="btn btn-circle btn-primary add-to-wishlist"
+                    data-product="1"
+                  >
+                    <i class="far fa-heart"></i>
+                  </button>
+                </div>
               </div>
             </figure>
             <div class="card-body py-4">
-              <h3 class="card-title">Yellow Coat Jacket</h3>
-              <p class="text-base-content/70">
-                Waterproof, windproof and breathable
+              <div class="rating mb-2">
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star-half-alt text-yellow-400"></i>
+                <span class="text-sm ml-2">(128)</span>
+              </div>
+              <h3 class="card-title text-lg mb-2">Yellow Coat Jacket</h3>
+              <p class="text-base-content/70 mb-3">
+                Waterproof, windproof and breathable winter coat with premium
+                insulation.
               </p>
-              <div class="card-actions justify-between items-center mt-4">
-                <span class="text-2xl font-bold">$234</span>
+              <div class="card-actions justify-between items-center">
+                <div class="price">
+                  <span class="text-2xl font-bold">$234</span>
+                  <span class="text-sm line-through text-base-content/50 ml-2"
+                    >$292</span
+                  >
+                </div>
                 <button
                   class="btn btn-primary add-to-cart"
+                  data-id="1"
                   data-name="Yellow Coat Jacket"
                   data-price="234"
+                  data-image="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=736&q=80"
                 >
-                  Add to Cart
+                  <i class="fas fa-shopping-cart mr-2"></i>Add to Cart
                 </button>
               </div>
             </div>
@@ -446,28 +791,58 @@
             class="card product-card bg-base-100 shadow-xl animate-fadeInUp delay-100"
           >
             <figure class="px-4 pt-4">
-              <div class="relative">
+              <div class="product-image">
                 <img
                   src="https://images.unsplash.com/photo-1548126032-079a0fb0099d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80"
                   alt="Ladies Jacket"
                   class="rounded-xl h-64 w-full object-cover"
                 />
                 <div class="discount-badge">-15%</div>
+                <div class="product-actions">
+                  <button
+                    class="btn btn-circle btn-primary quick-view"
+                    data-product="2"
+                  >
+                    <i class="fas fa-eye"></i>
+                  </button>
+                  <button
+                    class="btn btn-circle btn-primary add-to-wishlist"
+                    data-product="2"
+                  >
+                    <i class="far fa-heart"></i>
+                  </button>
+                </div>
               </div>
             </figure>
             <div class="card-body py-4">
-              <h3 class="card-title">Ladies Jacket</h3>
-              <p class="text-base-content/70">
-                Insulated with premium goose down
+              <div class="rating mb-2">
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="far fa-star text-yellow-400"></i>
+                <span class="text-sm ml-2">(95)</span>
+              </div>
+              <h3 class="card-title text-lg mb-2">Ladies Winter Jacket</h3>
+              <p class="text-base-content/70 mb-3">
+                Insulated with premium goose down for maximum warmth in extreme
+                conditions.
               </p>
-              <div class="card-actions justify-between items-center mt-4">
-                <span class="text-2xl font-bold">$189</span>
+              <div class="card-actions justify-between items-center">
+                <div class="price">
+                  <span class="text-2xl font-bold">$189</span>
+                  <span class="text-sm line-through text-base-content/50 ml-2"
+                    >$222</span
+                  >
+                </div>
                 <button
                   class="btn btn-primary add-to-cart"
-                  data-name="Ladies Jacket"
+                  data-id="2"
+                  data-name="Ladies Winter Jacket"
                   data-price="189"
+                  data-image="https://images.unsplash.com/photo-1548126032-079a0fb0099d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80"
                 >
-                  Add to Cart
+                  <i class="fas fa-shopping-cart mr-2"></i>Add to Cart
                 </button>
               </div>
             </div>
@@ -478,28 +853,58 @@
             class="card product-card bg-base-100 shadow-xl animate-fadeInUp delay-200"
           >
             <figure class="px-4 pt-4">
-              <div class="relative">
+              <div class="product-image">
                 <img
                   src="https://images.unsplash.com/photo-1551028719-00167b16eac5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=735&q=80"
                   alt="Woman Leather Jacket"
                   class="rounded-xl h-64 w-full object-cover"
                 />
                 <div class="discount-badge">-25%</div>
+                <div class="product-actions">
+                  <button
+                    class="btn btn-circle btn-primary quick-view"
+                    data-product="3"
+                  >
+                    <i class="fas fa-eye"></i>
+                  </button>
+                  <button
+                    class="btn btn-circle btn-primary add-to-wishlist"
+                    data-product="3"
+                  >
+                    <i class="far fa-heart"></i>
+                  </button>
+                </div>
               </div>
             </figure>
             <div class="card-body py-4">
-              <h3 class="card-title">Woman Leather Jacket</h3>
-              <p class="text-base-content/70">
-                Genuine leather with faux fur lining
+              <div class="rating mb-2">
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+                <span class="text-sm ml-2">(203)</span>
+              </div>
+              <h3 class="card-title text-lg mb-2">Leather Jacket</h3>
+              <p class="text-base-content/70 mb-3">
+                Genuine leather jacket with faux fur lining. Stylish and warm
+                for winter fashion.
               </p>
-              <div class="card-actions justify-between items-center mt-4">
-                <span class="text-2xl font-bold">$299</span>
+              <div class="card-actions justify-between items-center">
+                <div class="price">
+                  <span class="text-2xl font-bold">$299</span>
+                  <span class="text-sm line-through text-base-content/50 ml-2"
+                    >$399</span
+                  >
+                </div>
                 <button
                   class="btn btn-primary add-to-cart"
-                  data-name="Woman Leather Jacket"
+                  data-id="3"
+                  data-name="Leather Jacket"
                   data-price="299"
+                  data-image="https://images.unsplash.com/photo-1551028719-00167b16eac5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=735&q=80"
                 >
-                  Add to Cart
+                  <i class="fas fa-shopping-cart mr-2"></i>Add to Cart
                 </button>
               </div>
             </div>
@@ -509,40 +914,87 @@
     </section>
 
     <!-- Men's Jackets -->
-    <section class="py-12 bg-base-100">
+    <section id="men-jackets" class="py-20 bg-base-100">
       <div class="container mx-auto px-4">
-        <div class="flex justify-between items-center mb-10">
-          <h2 class="text-4xl font-bold title-font">MAN JACKET</h2>
-          <a href="#" class="text-primary hover:underline">View All</a>
+        <div
+          class="flex flex-col lg:flex-row justify-between items-center mb-12"
+        >
+          <div>
+            <h2 class="text-4xl lg:text-5xl font-bold title-font">
+              MEN'S JACKETS
+            </h2>
+            <p class="text-lg text-base-content/70 mt-2">
+              Durable and comfortable jackets for outdoor adventures
+            </p>
+          </div>
+          <div class="mt-4 lg:mt-0">
+            <a
+              href="pages/shop.html?category=men"
+              class="btn btn-outline btn-lg"
+            >
+              View All <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <!-- Product Card 1 -->
           <div
             class="card product-card bg-base-100 shadow-xl animate-fadeInUp delay-300"
           >
             <figure class="px-4 pt-4">
-              <div class="relative">
+              <div class="product-image">
                 <img
                   src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
                   alt="Snowboard Jacket"
                   class="rounded-xl h-64 w-full object-cover"
                 />
                 <div class="discount-badge">-30%</div>
+                <div class="product-actions">
+                  <button
+                    class="btn btn-circle btn-primary quick-view"
+                    data-product="4"
+                  >
+                    <i class="fas fa-eye"></i>
+                  </button>
+                  <button
+                    class="btn btn-circle btn-primary add-to-wishlist"
+                    data-product="4"
+                  >
+                    <i class="far fa-heart"></i>
+                  </button>
+                </div>
               </div>
             </figure>
             <div class="card-body py-4">
-              <h3 class="card-title">Snowboard Jacket</h3>
-              <p class="text-base-content/70">
-                Perfect for extreme winter conditions
+              <div class="rating mb-2">
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="far fa-star text-yellow-400"></i>
+                <span class="text-sm ml-2">(156)</span>
+              </div>
+              <h3 class="card-title text-lg mb-2">Snowboard Jacket</h3>
+              <p class="text-base-content/70 mb-3">
+                Perfect for extreme winter conditions. Designed for snowboarding
+                with advanced features.
               </p>
-              <div class="card-actions justify-between items-center mt-4">
-                <span class="text-2xl font-bold">$279</span>
+              <div class="card-actions justify-between items-center">
+                <div class="price">
+                  <span class="text-2xl font-bold">$279</span>
+                  <span class="text-sm line-through text-base-content/50 ml-2"
+                    >$399</span
+                  >
+                </div>
                 <button
                   class="btn btn-primary add-to-cart"
+                  data-id="4"
                   data-name="Snowboard Jacket"
                   data-price="279"
+                  data-image="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
                 >
-                  Add to Cart
+                  <i class="fas fa-shopping-cart mr-2"></i>Add to Cart
                 </button>
               </div>
             </div>
@@ -553,57 +1005,117 @@
             class="card product-card bg-base-100 shadow-xl animate-fadeInUp delay-400"
           >
             <figure class="px-4 pt-4">
-              <div class="relative">
+              <div class="product-image">
                 <img
-                  src="https://images.unsplash.com/photo-1591047592181-de6d9a8a5c5c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=686&q=80"
+                  src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=736&q=80"
                   alt="Man Leather Jacket"
                   class="rounded-xl h-64 w-full object-cover"
                 />
+                <div class="new-badge">New</div>
+                <div class="product-actions">
+                  <button
+                    class="btn btn-circle btn-primary quick-view"
+                    data-product="5"
+                  >
+                    <i class="fas fa-eye"></i>
+                  </button>
+                  <button
+                    class="btn btn-circle btn-primary add-to-wishlist"
+                    data-product="5"
+                  >
+                    <i class="far fa-heart"></i>
+                  </button>
+                </div>
               </div>
             </figure>
             <div class="card-body py-4">
-              <h3 class="card-title">Man Leather Jacket</h3>
-              <p class="text-base-content/70">
-                Classic biker style with modern comfort
+              <div class="rating mb-2">
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star-half-alt text-yellow-400"></i>
+                <span class="text-sm ml-2">(89)</span>
+              </div>
+              <h3 class="card-title text-lg mb-2">Leather Biker Jacket</h3>
+              <p class="text-base-content/70 mb-3">
+                Classic biker style with modern comfort. Genuine leather with
+                excellent craftsmanship.
               </p>
-              <div class="card-actions justify-between items-center mt-4">
-                <span class="text-2xl font-bold">$349</span>
+              <div class="card-actions justify-between items-center">
+                <div class="price">
+                  <span class="text-2xl font-bold">$349</span>
+                </div>
                 <button
                   class="btn btn-primary add-to-cart"
-                  data-name="Man Leather Jacket"
+                  data-id="5"
+                  data-name="Leather Biker Jacket"
                   data-price="349"
+                  data-image="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=736&q=80"
                 >
-                  Add to Cart
+                  <i class="fas fa-shopping-cart mr-2"></i>Add to Cart
                 </button>
               </div>
             </div>
           </div>
 
           <!-- Product Card 3 -->
-          <div class="card product-card bg-base-100 shadow-xl">
+          <div
+            class="card product-card bg-base-100 shadow-xl animate-fadeInUp delay-500"
+          >
             <figure class="px-4 pt-4">
-              <div class="relative">
+              <div class="product-image">
                 <img
                   src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
                   alt="Winter Parka"
                   class="rounded-xl h-64 w-full object-cover"
                 />
                 <div class="discount-badge">-10%</div>
+                <div class="product-actions">
+                  <button
+                    class="btn btn-circle btn-primary quick-view"
+                    data-product="6"
+                  >
+                    <i class="fas fa-eye"></i>
+                  </button>
+                  <button
+                    class="btn btn-circle btn-primary add-to-wishlist"
+                    data-product="6"
+                  >
+                    <i class="far fa-heart"></i>
+                  </button>
+                </div>
               </div>
             </figure>
             <div class="card-body py-4">
-              <h3 class="card-title">Winter Parka</h3>
-              <p class="text-base-content/70">
-                Heavy duty protection against extreme cold
+              <div class="rating mb-2">
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="far fa-star text-yellow-400"></i>
+                <span class="text-sm ml-2">(112)</span>
+              </div>
+              <h3 class="card-title text-lg mb-2">Winter Parka</h3>
+              <p class="text-base-content/70 mb-3">
+                Heavy duty protection against extreme cold. Perfect for arctic
+                conditions with maximum warmth.
               </p>
-              <div class="card-actions justify-between items-center mt-4">
-                <span class="text-2xl font-bold">$199</span>
+              <div class="card-actions justify-between items-center">
+                <div class="price">
+                  <span class="text-2xl font-bold">$199</span>
+                  <span class="text-sm line-through text-base-content/50 ml-2"
+                    >$221</span
+                  >
+                </div>
                 <button
                   class="btn btn-primary add-to-cart"
+                  data-id="6"
                   data-name="Winter Parka"
                   data-price="199"
+                  data-image="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
                 >
-                  Add to Cart
+                  <i class="fas fa-shopping-cart mr-2"></i>Add to Cart
                 </button>
               </div>
             </div>
@@ -613,61 +1125,71 @@
     </section>
 
     <!-- Features Section -->
-    <section class="py-12 bg-base-200">
+    <section class="py-20 bg-base-200">
       <div class="container mx-auto px-4">
-        <div class="flex flex-col md:flex-row items-center justify-between">
-          <div class="md:w-1/2 mb-10 md:mb-0">
-            <div class="flex items-start mb-6">
-              <div class="feature-icon">
-                <img
-                  src="https://cdn-icons-png.flaticon.com/512/709/709510.png"
-                  class="w-10 h-10"
-                  alt="Free Exchange"
-                />
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="animate-fadeInUp">
+            <h2 class="text-4xl lg:text-5xl font-bold mb-6 title-font">
+              Why Choose Penguin Fashion?
+            </h2>
+            <p class="text-lg text-base-content/70 mb-8">
+              We're committed to providing the highest quality winter wear with
+              exceptional customer service.
+            </p>
+
+            <div class="space-y-6">
+              <div
+                class="flex items-start space-x-4 animate-fadeInUp delay-100"
+              >
+                <div class="feature-icon">
+                  <i class="fas fa-exchange-alt text-2xl text-primary"></i>
+                </div>
+                <div>
+                  <h3 class="text-2xl font-bold mb-2">Free Exchanges</h3>
+                  <p class="text-base-content/70">
+                    Not satisfied with your size? We offer free exchanges within
+                    30 days of purchase.
+                  </p>
+                </div>
               </div>
-              <div class="ml-6">
-                <h3 class="text-2xl font-bold mb-2">Free Exchanges</h3>
-                <p>
-                  Everybody is different, which is why we offer styles for every
-                  body.
-                </p>
+
+              <div
+                class="flex items-start space-x-4 animate-fadeInUp delay-200"
+              >
+                <div class="feature-icon">
+                  <i class="fas fa-shipping-fast text-2xl text-primary"></i>
+                </div>
+                <div>
+                  <h3 class="text-2xl font-bold mb-2">Free Shipping</h3>
+                  <p class="text-base-content/70">
+                    Free worldwide shipping on orders over $100. Fast delivery
+                    guaranteed.
+                  </p>
+                </div>
               </div>
-            </div>
-            <div class="flex items-start mb-6">
-              <div class="feature-icon">
-                <img
-                  src="https://cdn-icons-png.flaticon.com/512/4297/4297813.png"
-                  class="w-10 h-10"
-                  alt="Free Shipping"
-                />
-              </div>
-              <div class="ml-6">
-                <h3 class="text-2xl font-bold mb-2">Free Shipping</h3>
-                <p>One of the many reasons you can shop with peace of mind.</p>
-              </div>
-            </div>
-            <div class="flex items-start">
-              <div class="feature-icon">
-                <img
-                  src="https://cdn-icons-png.flaticon.com/512/4305/4305586.png"
-                  class="w-10 h-10"
-                  alt="Customer Support"
-                />
-              </div>
-              <div class="ml-6">
-                <h3 class="text-2xl font-bold mb-2">24/7 Support</h3>
-                <p>
-                  They are here to help you. That's quite literally what we pay
-                  them for.
-                </p>
+
+              <div
+                class="flex items-start space-x-4 animate-fadeInUp delay-300"
+              >
+                <div class="feature-icon">
+                  <i class="fas fa-headset text-2xl text-primary"></i>
+                </div>
+                <div>
+                  <h3 class="text-2xl font-bold mb-2">24/7 Support</h3>
+                  <p class="text-base-content/70">
+                    Our customer support team is available around the clock to
+                    assist you.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-          <div class="md:w-1/2">
+
+          <div class="animate-fadeInUp delay-400">
             <img
               src="https://images.unsplash.com/photo-1607083206968-13611e3d76db?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1515&q=80"
               alt="Customer Service"
-              class="rounded-lg shadow-lg w-full"
+              class="rounded-2xl shadow-2xl w-full"
             />
           </div>
         </div>
@@ -675,256 +1197,451 @@
     </section>
 
     <!-- Special Offer Banner -->
-    <section class="py-12 bg-gray-600 text-primary-content">
+    <section
+      id="deals"
+      class="py-20 bg-gradient-to-r from-primary to-secondary text-white"
+    >
       <div class="container mx-auto px-4 text-center">
-        <h2 class="text-3xl font-bold mb-4">Special Offer - Limited Time!</h2>
-        <p class="text-xl mb-6">
-          Get 30% off on all electronics. Use code: ELECTRO30
+        <h2
+          class="text-4xl lg:text-5xl font-bold mb-4 title-font animate-bounceIn"
+        >
+          SPECIAL OFFER - LIMITED TIME!
+        </h2>
+        <p class="text-xl mb-8 max-w-2xl mx-auto animate-fadeInUp delay-100">
+          Get 30% off on all winter jackets. Use code:
+          <span class="font-bold">WINTER30</span> at checkout
         </p>
-        <div class="flex justify-center">
-          <div class="grid grid-flow-col gap-5 text-center auto-cols-max">
-            <div
-              class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content"
-            >
-              <span class="countdown font-mono text-5xl">
-                <span id="days" style="--value: 2">2</span>
-              </span>
-              days
+
+        <div
+          class="countdown-container max-w-2xl mx-auto animate-fadeInUp delay-200"
+        >
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="countdown-item">
+              <div id="countdown-days" class="countdown-number">02</div>
+              <div class="countdown-label">Days</div>
             </div>
-            <div
-              class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content"
-            >
-              <span class="countdown font-mono text-5xl">
-                <span id="hours" style="--value: 10">10</span>
-              </span>
-              hours
+            <div class="countdown-item">
+              <div id="countdown-hours" class="countdown-number">10</div>
+              <div class="countdown-label">Hours</div>
             </div>
-            <div
-              class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content"
-            >
-              <span class="countdown font-mono text-5xl">
-                <span id="minutes" style="--value: 24">24</span>
-              </span>
-              min
+            <div class="countdown-item">
+              <div id="countdown-minutes" class="countdown-number">24</div>
+              <div class="countdown-label">Minutes</div>
             </div>
-            <div
-              class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content"
-            >
-              <span class="countdown font-mono text-5xl">
-                <span id="seconds" style="--value: 43">43</span>
-              </span>
-              sec
+            <div class="countdown-item">
+              <div id="countdown-seconds" class="countdown-number">43</div>
+              <div class="countdown-label">Seconds</div>
             </div>
           </div>
         </div>
-        <button class="btn btn-accent mt-8">Shop Now</button>
+
+        <button class="btn btn-accent btn-lg mt-8 animate-fadeInUp delay-300">
+          <i class="fas fa-bolt mr-2"></i>SHOP THE SALE
+        </button>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-base-100">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl lg:text-5xl font-bold mb-4 title-font">
+            What Our Customers Say
+          </h2>
+          <p class="text-xl text-base-content/70 max-w-2xl mx-auto">
+            Don't just take our word for it - hear from our satisfied customers
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="card bg-base-200 shadow-xl animate-fadeInUp">
+            <div class="card-body">
+              <div class="rating mb-4">
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+              </div>
+              <p class="text-base-content/70 mb-6">
+                "The quality of these jackets is outstanding! I've never been
+                warmer in winter. The delivery was fast and the customer service
+                was excellent."
+              </p>
+              <div class="flex items-center space-x-4">
+                <div class="avatar">
+                  <div class="w-12 h-12 rounded-full">
+                    <img
+                      src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80"
+                      alt="Sarah Johnson"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <div class="font-semibold">Sarah Johnson</div>
+                  <div class="text-sm text-base-content/70">Verified Buyer</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card bg-base-200 shadow-xl animate-fadeInUp delay-100">
+            <div class="card-body">
+              <div class="rating mb-4">
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+              </div>
+              <p class="text-base-content/70 mb-6">
+                "I bought the winter parka for my hiking trip and it performed
+                exceptionally well in -20°C weather. Highly recommended for
+                outdoor enthusiasts!"
+              </p>
+              <div class="flex items-center space-x-4">
+                <div class="avatar">
+                  <div class="w-12 h-12 rounded-full">
+                    <img
+                      src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80"
+                      alt="Michael Chen"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <div class="font-semibold">Michael Chen</div>
+                  <div class="text-sm text-base-content/70">
+                    Adventure Guide
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card bg-base-200 shadow-xl animate-fadeInUp delay-200">
+            <div class="card-body">
+              <div class="rating mb-4">
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star-half-alt text-yellow-400"></i>
+              </div>
+              <p class="text-base-content/70 mb-6">
+                "The leather jacket is not only warm but also incredibly
+                stylish. I've received so many compliments. The quality is worth
+                every penny."
+              </p>
+              <div class="flex items-center space-x-4">
+                <div class="avatar">
+                  <div class="w-12 h-12 rounded-full">
+                    <img
+                      src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80"
+                      alt="Emily Rodriguez"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <div class="font-semibold">Emily Rodriguez</div>
+                  <div class="text-sm text-base-content/70">
+                    Fashion Blogger
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- Newsletter Section -->
-    <section class="py-12 bg-primary text-primary-content">
+    <section class="py-20 bg-primary text-primary-content">
       <div class="container mx-auto px-4 text-center">
-        <h2 class="text-4xl font-bold mb-4 title-font">
-          Subscribe to Our Newsletter
+        <h2 class="text-4xl lg:text-5xl font-bold mb-4 title-font">
+          Stay Warm & Stylish
         </h2>
-        <p class="text-xl mb-6">
-          Get updates on new products, special offers, and exclusive deals.
+        <p class="text-xl mb-8 max-w-2xl mx-auto">
+          Subscribe to our newsletter and be the first to know about new
+          collections, exclusive deals, and winter fashion tips.
         </p>
-        <div class="max-w-md mx-auto">
+
+        <form id="newsletter-form" class="max-w-md mx-auto">
           <div class="form-control">
             <div class="input-group justify-center">
               <input
-                type="text"
+                type="email"
+                name="email"
                 placeholder="Your email address"
                 class="input input-bordered w-full"
+                required
               />
-              <button class="btn btn-accent">Subscribe</button>
+              <button type="submit" class="btn btn-accent">
+                <i class="fas fa-paper-plane mr-2"></i>Subscribe
+              </button>
             </div>
           </div>
-        </div>
+          <p class="text-sm mt-4 text-primary-content/80">
+            By subscribing, you agree to our Privacy Policy and consent to
+            receive updates from our company.
+          </p>
+        </form>
       </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer p-10 bg-neutral text-neutral-content">
-      <div>
-        <span class="footer-title">Services</span>
-        <a class="link link-hover">Branding</a>
-        <a class="link link-hover">Design</a>
-        <a class="link link-hover">Marketing</a>
-        <a class="link link-hover">Advertisement</a>
-      </div>
-      <div>
-        <span class="footer-title">Company</span>
-        <a class="link link-hover">About us</a>
-        <a class="link link-hover">Contact</a>
-        <a class="link link-hover">Jobs</a>
-        <a class="link link-hover">Press kit</a>
-      </div>
-      <div>
-        <span class="footer-title">Legal</span>
-        <a class="link link-hover">Terms of use</a>
-        <a class="link link-hover">Privacy policy</a>
-        <a class="link link-hover">Cookie policy</a>
-      </div>
-      <div>
-        <span class="footer-title">Newsletter</span>
-        <div class="form-control w-80">
-          <label class="label">
-            <span class="label-text text-neutral-content"
-              >Enter your email address</span
-            >
-          </label>
-          <div class="relative">
-            <input
-              type="text"
-              placeholder="username@site.com"
-              class="input input-bordered w-full pr-16"
-            />
-            <button
-              class="btn btn-primary absolute top-0 right-0 rounded-l-none"
-            >
-              Subscribe
-            </button>
+      <div class="container mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div>
+            <a class="penguin-logo text-white mb-4">PENGUIN FASHION</a>
+            <p class="mb-4">
+              Premium winter wear for every adventure. Stay warm, stay stylish
+              with Penguin Fashion.
+            </p>
+            <div class="social-icons">
+              <a href="#" class="social-icon">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-pinterest"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-youtube"></i>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <span class="footer-title">Shop</span>
+            <div class="footer-links">
+              <a href="#men-jackets">Men's Collection</a>
+              <a href="#women-jackets">Women's Collection</a>
+              <a href="pages/shop.html?category=accessories">Accessories</a>
+              <a href="pages/shop.html?category=footwear">Footwear</a>
+              <a href="pages/shop.html?category=new">New Arrivals</a>
+              <a href="pages/shop.html?category=bestsellers">Best Sellers</a>
+              <a href="#deals">Sale Items</a>
+              <a href="#gift-cards">Gift Cards</a>
+            </div>
+          </div>
+
+          <div>
+            <span class="footer-title">Customer Service</span>
+            <div class="footer-links">
+              <a href="pages/about.html#contact">Contact Us</a>
+              <a href="#shipping">Shipping Info</a>
+              <a href="#returns">Returns & Exchanges</a>
+              <a href="#size-guide">Size Guide</a>
+              <a href="#care-guide">Care Guide</a>
+              <a href="#faq">FAQ</a>
+              <a href="#track-order">Track Your Order</a>
+            </div>
+          </div>
+
+          <div>
+            <span class="footer-title">Company</span>
+            <div class="footer-links">
+              <a href="pages/about.html">About Us</a>
+              <a href="pages/about.html#story">Our Story</a>
+              <a href="pages/about.html#sustainability">Sustainability</a>
+              <a href="pages/about.html#careers">Careers</a>
+              <a href="pages/about.html#press">Press</a>
+              <a href="pages/about.html#affiliates">Affiliate Program</a>
+              <a href="pages/about.html#wholesale">Wholesale</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="border-t border-base-300 mt-12 pt-8">
+          <div class="flex flex-col lg:flex-row justify-between items-center">
+            <div class="text-center lg:text-left mb-4 lg:mb-0">
+              <p>&copy; 2024 Penguin Fashion. All rights reserved.</p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-4">
+              <a href="#privacy" class="link link-hover">Privacy Policy</a>
+              <a href="#terms" class="link link-hover">Terms of Service</a>
+              <a href="#cookies" class="link link-hover">Cookie Policy</a>
+              <a href="#sitemap" class="link link-hover">Sitemap</a>
+            </div>
           </div>
         </div>
       </div>
     </footer>
 
-    <!-- JavaScript for interactive elements -->
+    <!-- JavaScript -->
+    <script src="js/theme.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/script.js"></script>
+
     <script>
-      // Theme switching functionality
-      const themeToggle = document.getElementById("theme-toggle");
-      const html = document.documentElement;
-
-      themeToggle.addEventListener("click", () => {
-        if (html.getAttribute("data-theme") === "light") {
-          html.setAttribute("data-theme", "dark");
-          themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-        } else {
-          html.setAttribute("data-theme", "light");
-          themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+      // Initialize the application
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initialize main application
+        if (typeof PenguinFashionApp !== "undefined") {
+          window.penguinApp = new PenguinFashionApp();
         }
-      });
 
-      // Cart functionality
-      let cartItems = [];
-      let cartTotal = 0;
+        // Countdown timer for special offer
+        function updateCountdown() {
+          const now = new Date();
+          const target = new Date();
+          target.setHours(23, 59, 59, 999); // End of day
 
-      document.querySelectorAll(".add-to-cart").forEach((button) => {
-        button.addEventListener("click", function () {
-          const name = this.getAttribute("data-name");
-          const price = parseFloat(this.getAttribute("data-price"));
+          const diff = target - now;
 
-          cartItems.push({ name, price });
-          cartTotal += price;
-
-          updateCartDisplay();
-
-          // Show notification
-          const notification = document.querySelector(".cart-notification");
-          notification.classList.add("show");
-
-          setTimeout(() => {
-            notification.classList.remove("show");
-          }, 3000);
-
-          // Button animation
-          this.innerHTML = "Added!";
-          this.classList.add("btn-success");
-
-          setTimeout(() => {
-            this.innerHTML = "Add to Cart";
-            this.classList.remove("btn-success");
-          }, 2000);
-        });
-      });
-
-      function updateCartDisplay() {
-        document.getElementById("cart-count").textContent = cartItems.length;
-        document.getElementById(
-          "cart-items-count"
-        ).textContent = `${cartItems.length} Items`;
-        document.getElementById(
-          "cart-total"
-        ).textContent = `Subtotal: $${cartTotal.toFixed(2)}`;
-      }
-
-      // Animate elements on scroll
-      function animateOnScroll() {
-        const elements = document.querySelectorAll(".product-card");
-
-        elements.forEach((element) => {
-          const position = element.getBoundingClientRect().top;
-          const screenPosition = window.innerHeight / 1.3;
-
-          if (position < screenPosition) {
-            element.style.opacity = 1;
+          if (diff <= 0) {
+            // Reset for next day
+            target.setDate(target.getDate() + 1);
+            return;
           }
+
+          const hours = Math.floor(diff / (1000 * 60 * 60));
+          const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+          // Update countdown display
+          const daysEl = document.getElementById("countdown-days");
+          const hoursEl = document.getElementById("countdown-hours");
+          const minutesEl = document.getElementById("countdown-minutes");
+          const secondsEl = document.getElementById("countdown-seconds");
+
+          if (daysEl) daysEl.textContent = "02"; // Fixed for demo
+          if (hoursEl) hoursEl.textContent = hours.toString().padStart(2, "0");
+          if (minutesEl)
+            minutesEl.textContent = minutes.toString().padStart(2, "0");
+          if (secondsEl)
+            secondsEl.textContent = seconds.toString().padStart(2, "0");
+        }
+
+        // Start countdown
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // Add to cart functionality
+        document.querySelectorAll(".add-to-cart").forEach((button) => {
+          button.addEventListener("click", function () {
+            const product = {
+              id: this.getAttribute("data-id"),
+              name: this.getAttribute("data-name"),
+              price: parseFloat(this.getAttribute("data-price")),
+              image: this.getAttribute("data-image"),
+              quantity: 1,
+            };
+
+            // Add to cart
+            if (window.cart) {
+              window.cart.addItem(product);
+            }
+
+            // Show success animation
+            this.innerHTML = '<i class="fas fa-check mr-2"></i>Added!';
+            this.classList.add("btn-success");
+
+            setTimeout(() => {
+              this.innerHTML =
+                '<i class="fas fa-shopping-cart mr-2"></i>Add to Cart';
+              this.classList.remove("btn-success");
+            }, 2000);
+          });
         });
-      }
 
-      // Countdown timer for special offer
-      function updateCountdown() {
-        const days = document.getElementById("days");
-        const hours = document.getElementById("hours");
-        const minutes = document.getElementById("minutes");
-        const seconds = document.getElementById("seconds");
+        // Quick view functionality
+        document.querySelectorAll(".quick-view").forEach((button) => {
+          button.addEventListener("click", function () {
+            const productId = this.getAttribute("data-product");
+            // Implement quick view modal here
+            alert("Quick view for product " + productId);
+          });
+        });
 
-        let sec = parseInt(
-          seconds.getAttribute("data-value") ||
-            seconds.style.getPropertyValue("--value")
-        );
-        let min = parseInt(
-          minutes.getAttribute("data-value") ||
-            minutes.style.getPropertyValue("--value")
-        );
-        let hr = parseInt(
-          hours.getAttribute("data-value") ||
-            hours.style.getPropertyValue("--value")
-        );
-        let d = parseInt(
-          days.getAttribute("data-value") ||
-            days.style.getPropertyValue("--value")
-        );
+        // Wishlist functionality
+        document.querySelectorAll(".add-to-wishlist").forEach((button) => {
+          button.addEventListener("click", function () {
+            const productId = this.getAttribute("data-product");
+            const icon = this.querySelector("i");
 
-        sec--;
-
-        if (sec < 0) {
-          sec = 59;
-          min--;
-
-          if (min < 0) {
-            min = 59;
-            hr--;
-
-            if (hr < 0) {
-              hr = 23;
-              d--;
-
-              if (d < 0) {
-                d = 0;
-                hr = 0;
-                min = 0;
-                sec = 0;
+            if (icon.classList.contains("far")) {
+              icon.classList.remove("far");
+              icon.classList.add("fas", "text-red-500");
+              // Show toast notification
+              if (window.penguinApp) {
+                window.penguinApp.showToast("Added to wishlist", "success");
+              }
+            } else {
+              icon.classList.remove("fas", "text-red-500");
+              icon.classList.add("far");
+              // Show toast notification
+              if (window.penguinApp) {
+                window.penguinApp.showToast("Removed from wishlist", "info");
               }
             }
-          }
+          });
+        });
+
+        // Newsletter form submission
+        const newsletterForm = document.getElementById("newsletter-form");
+        if (newsletterForm) {
+          newsletterForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+
+            // Simple validation
+            if (email && email.includes("@")) {
+              // Show success message
+              if (window.penguinApp) {
+                window.penguinApp.showToast(
+                  "Thank you for subscribing!",
+                  "success"
+                );
+              }
+              this.reset();
+            } else {
+              if (window.penguinApp) {
+                window.penguinApp.showToast(
+                  "Please enter a valid email address",
+                  "error"
+                );
+              }
+            }
+          });
         }
 
-        seconds.style.setProperty("--value", sec);
-        minutes.style.setProperty("--value", min);
-        hours.style.setProperty("--value", hr);
-        days.style.setProperty("--value", d);
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute("href"));
+            if (target) {
+              target.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }
+          });
+        });
 
-        setTimeout(updateCountdown, 1000);
-      }
+        // Initialize theme system
+        if (typeof ThemeManager !== "undefined") {
+          window.themeManager = new ThemeManager();
+        }
 
-      window.addEventListener("scroll", animateOnScroll);
+        // Initialize auth system
+        if (typeof AuthSystem !== "undefined") {
+          window.authSystem = new AuthSystem();
+        }
 
-      // Initialize animations
-      document.addEventListener("DOMContentLoaded", function () {
-        animateOnScroll();
+        // Initialize cart system
+        if (typeof Cart !== "undefined") {
+          window.cart = new Cart();
+        }
       });
     </script>
   </body>

@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us | PenguinFashion - Premium Winter Wear</title>
+    <meta
+      name="description"
+      content="Learn about PenguinFashion's story, mission, and commitment to quality winter wear. Discover what makes us different."
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/auth.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+
+    <!-- Tailwind CSS with DaisyUI -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@3.1.0/dist/full.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@300;500&family=Roboto:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Theme Switcher -->
+    <div class="fixed top-5 right-5 z-50 theme-switcher">
+      <div class="dropdown dropdown-end">
+        <button id="theme-toggle" class="btn btn-circle btn-primary shadow-lg">
+          <i id="theme-icon" class="fas fa-moon"></i>
+        </button>
+        <div id="theme-dropdown" class="theme-dropdown">
+          <!-- Theme options will be populated by JavaScript -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Cart Notification -->
+    <div class="cart-notification">
+      <div class="alert alert-success shadow-lg max-w-sm">
+        <div class="flex items-center">
+          <i class="fas fa-check-circle mr-2"></i>
+          <span>Item added to cart!</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search Modal -->
+    <div id="search-modal" class="search-modal">
+      <div class="search-container">
+        <button
+          id="search-close"
+          class="btn btn-ghost btn-circle absolute top-4 right-4"
+        >
+          <i class="fas fa-times"></i>
+        </button>
+        <h2 class="text-2xl font-bold mb-6">Search Products</h2>
+        <div class="form-control">
+          <div class="input-group">
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Search for jackets, coats, accessories..."
+              class="input input-bordered w-full"
+            />
+            <button class="btn btn-primary">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+        <div id="search-results" class="mt-4 max-h-60 overflow-y-auto hidden">
+          <!-- Search results will be populated by JavaScript -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Auth Modal -->
+    <div id="auth-modal" class="auth-modal">
+      <!-- Same auth modal content as index.html -->
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu">
+      <!-- Same mobile menu content as index.html -->
+    </div>
+
+    <!-- Header/Navigation -->
+    <header
+      class="sticky top-0 z-40 bg-base-100/80 backdrop-blur-md border-b border-base-300"
+    >
+      <div class="container mx-auto px-4">
+        <div class="navbar py-3">
+          <!-- Mobile menu button -->
+          <div class="navbar-start">
+            <button id="mobile-menu-btn" class="btn btn-ghost lg:hidden">
+              <i class="fas fa-bars text-xl"></i>
+            </button>
+            <a href="../index.html" class="penguin-logo ml-2 lg:ml-0"
+              >PENGUIN FASHION</a
+            >
+          </div>
+
+          <!-- Desktop Navigation -->
+          <div class="navbar-center hidden lg:flex">
+            <ul class="menu menu-horizontal px-1 space-x-1">
+              <li class="nav-item">
+                <a href="../index.html" class="nav-link">Home</a>
+              </li>
+              <li class="nav-item relative">
+                <a href="shop.html" class="nav-link">Shop</a>
+                <div class="mega-menu">
+                  <div class="grid grid-cols-4 gap-8">
+                    <div class="mega-menu-column">
+                      <h4>Men's Collection</h4>
+                      <div class="mega-menu-links">
+                        <a href="#men-jackets">Jackets & Coats</a>
+                        <a href="#men-sweaters">Sweaters & Hoodies</a>
+                        <a href="#men-pants">Winter Pants</a>
+                        <a href="#men-accessories">Accessories</a>
+                      </div>
+                    </div>
+                    <div class="mega-menu-column">
+                      <h4>Women's Collection</h4>
+                      <div class="mega-menu-links">
+                        <a href="#women-jackets">Jackets & Coats</a>
+                        <a href="#women-sweaters">Sweaters & Cardigans</a>
+                        <a href="#women-dresses">Winter Dresses</a>
+                        <a href="#women-accessories">Accessories</a>
+                      </div>
+                    </div>
+                    <div class="mega-menu-column">
+                      <h4>Accessories</h4>
+                      <div class="mega-menu-links">
+                        <a href="#hats">Hats & Beanies</a>
+                        <a href="#scarves">Scarves & Gloves</a>
+                        <a href="#boots">Winter Boots</a>
+                        <a href="#socks">Thermal Socks</a>
+                      </div>
+                    </div>
+                    <div class="mega-menu-column">
+                      <h4>Featured</h4>
+                      <div class="mega-menu-links">
+                        <a href="#new-arrivals">New Arrivals</a>
+                        <a href="#best-sellers">Best Sellers</a>
+                        <a href="#sale">Sale Items</a>
+                        <a href="#gift-cards">Gift Cards</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a href="categories.html" class="nav-link">Categories</a>
+              </li>
+              <li class="nav-item">
+                <a href="../index.html#deals" class="nav-link">Deals</a>
+              </li>
+              <li class="nav-item">
+                <a href="about.html" class="nav-link active">About</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Right side icons -->
+          <div class="navbar-end space-x-2">
+            <!-- Search -->
+            <button id="search-btn" class="btn btn-ghost btn-circle">
+              <i class="fas fa-search"></i>
+            </button>
+
+            <!-- User Account -->
+            <div class="dropdown dropdown-end">
+              <button class="btn btn-ghost btn-circle auth-btn sign-in-btn">
+                <i class="fas fa-user"></i>
+              </button>
+              <button
+                class="btn btn-ghost btn-circle auth-btn profile-btn hidden"
+              >
+                <div class="avatar online">
+                  <div class="w-8 h-8 rounded-full user-avatar"></div>
+                </div>
+              </button>
+              <ul
+                tabindex="0"
+                class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+              >
+                <li class="user-element hidden">
+                  <a class="justify-between">
+                    <span class="user-name">User Name</span>
+                    <span class="badge badge-primary">New</span>
+                  </a>
+                </li>
+                <li class="user-element hidden"><a>Profile</a></li>
+                <li class="user-element hidden"><a>Orders</a></li>
+                <li class="user-element hidden"><a>Wishlist</a></li>
+                <li class="user-element hidden"><a>Settings</a></li>
+                <li class="user-element hidden">
+                  <a id="logout-btn">Logout</a>
+                </li>
+                <li class="guest-element"><a class="auth-btn">Sign In</a></li>
+                <li class="guest-element">
+                  <a class="auth-btn">Create Account</a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Shopping Cart -->
+            <div class="dropdown dropdown-end">
+              <button class="btn btn-ghost btn-circle">
+                <div class="indicator">
+                  <i class="fas fa-shopping-cart"></i>
+                  <span
+                    class="badge badge-xs badge-primary indicator-item cart-count"
+                    >0</span
+                  >
+                </div>
+              </button>
+              <div
+                tabindex="0"
+                class="mt-3 z-[1] card card-compact dropdown-content cart-dropdown-content w-80 bg-base-100 shadow"
+              >
+                <!-- Cart items will be populated by JavaScript -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- About Header -->
+    <section class="bg-base-200 py-12">
+      <div class="container mx-auto px-4">
+        <div class="text-center">
+          <h1 class="text-4xl lg:text-6xl font-bold mb-4 title-font">
+            OUR STORY
+          </h1>
+          <p class="text-xl text-base-content/70 max-w-2xl mx-auto">
+            From humble beginnings to becoming a leader in premium winter wear.
+            Discover the journey behind Penguin Fashion.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Story -->
+    <section class="py-20 bg-base-100">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="animate-fadeInUp">
+            <h2 class="text-4xl lg:text-5xl font-bold mb-6 title-font">
+              Born from Passion
+            </h2>
+            <p class="text-lg text-base-content/70 mb-6">
+              Penguin Fashion was founded in 2015 by a group of winter sports
+              enthusiasts who were frustrated with the lack of stylish yet
+              functional winter wear in the market. What started as a small
+              project in a garage has grown into a beloved brand trusted by
+              thousands.
+            </p>
+            <p class="text-lg text-base-content/70 mb-8">
+              Our mission is simple: create winter wear that doesn't force you
+              to choose between style and functionality. We believe everyone
+              deserves to stay warm while looking their best, whether they're
+              hitting the slopes or walking through the city.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <div class="stat bg-base-200 rounded-lg p-4">
+                <div class="stat-title">Years of Excellence</div>
+                <div class="stat-value text-primary">9+</div>
+              </div>
+              <div class="stat bg-base-200 rounded-lg p-4">
+                <div class="stat-title">Happy Customers</div>
+                <div class="stat-value text-primary">10K+</div>
+              </div>
+              <div class="stat bg-base-200 rounded-lg p-4">
+                <div class="stat-title">Products Designed</div>
+                <div class="stat-value text-primary">50+</div>
+              </div>
+            </div>
+          </div>
+          <div class="animate-fadeInUp delay-200">
+            <img
+              src="https://images.unsplash.com/photo-1556760544-74068565f05c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+              alt="Our Workshop"
+              class="rounded-2xl shadow-2xl w-full"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Values -->
+    <section class="py-20 bg-base-200">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center mb-16 title-font">
+          Our Values
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="card bg-base-100 shadow-xl animate-fadeInUp">
+            <div class="card-body text-center">
+              <div class="feature-icon mx-auto mb-4">
+                <i class="fas fa-gem text-2xl text-primary"></i>
+              </div>
+              <h3 class="card-title justify-center text-2xl mb-4">
+                Quality First
+              </h3>
+              <p class="text-base-content/70">
+                We never compromise on quality. Every stitch, every fabric, and
+                every design element is carefully considered to ensure longevity
+                and performance.
+              </p>
+            </div>
+          </div>
+
+          <div class="card bg-base-100 shadow-xl animate-fadeInUp delay-100">
+            <div class="card-body text-center">
+              <div class="feature-icon mx-auto mb-4">
+                <i class="fas fa-leaf text-2xl text-primary"></i>
+              </div>
+              <h3 class="card-title justify-center text-2xl mb-4">
+                Sustainability
+              </h3>
+              <p class="text-base-content/70">
+                We're committed to ethical manufacturing and sustainable
+                practices. Our packaging is 100% recyclable, and we're
+                constantly working to reduce our environmental impact.
+              </p>
+            </div>
+          </div>
+
+          <div class="card bg-base-100 shadow-xl animate-fadeInUp delay-200">
+            <div class="card-body text-center">
+              <div class="feature-icon mx-auto mb-4">
+                <i class="fas fa-heart text-2xl text-primary"></i>
+              </div>
+              <h3 class="card-title justify-center text-2xl mb-4">
+                Customer Love
+              </h3>
+              <p class="text-base-content/70">
+                Our customers are at the heart of everything we do. We listen to
+                feedback, continuously improve, and strive to exceed
+                expectations with every interaction.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Process -->
+    <section class="py-20 bg-base-100">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center mb-16 title-font">
+          Our Craftsmanship
+        </h2>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="order-2 lg:order-1 animate-fadeInUp">
+            <div class="space-y-8">
+              <div class="flex items-start space-x-4">
+                <div
+                  class="flex-shrink-0 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center"
+                >
+                  <span class="font-bold">1</span>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold mb-2">Material Selection</h3>
+                  <p class="text-base-content/70">
+                    We source only the finest materials from trusted suppliers.
+                    Each fabric is tested for durability, warmth, and comfort
+                    before being approved for production.
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-4">
+                <div
+                  class="flex-shrink-0 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center"
+                >
+                  <span class="font-bold">2</span>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold mb-2">Design & Prototyping</h3>
+                  <p class="text-base-content/70">
+                    Our design team creates innovative patterns that blend style
+                    with functionality. Each design goes through multiple
+                    prototyping stages to ensure perfection.
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-4">
+                <div
+                  class="flex-shrink-0 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center"
+                >
+                  <span class="font-bold">3</span>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold mb-2">Quality Control</h3>
+                  <p class="text-base-content/70">
+                    Every garment undergoes rigorous quality checks. From stitch
+                    strength to water resistance, we test every aspect to meet
+                    our high standards.
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-4">
+                <div
+                  class="flex-shrink-0 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center"
+                >
+                  <span class="font-bold">4</span>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold mb-2">Ethical Production</h3>
+                  <p class="text-base-content/70">
+                    We partner with factories that share our commitment to fair
+                    labor practices and environmental responsibility. Every
+                    worker is treated with respect and dignity.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="order-1 lg:order-2 animate-fadeInUp delay-200">
+            <img
+              src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+              alt="Our Production Process"
+              class="rounded-2xl shadow-2xl w-full"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-20 bg-base-200">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center mb-4 title-font">
+          Meet Our Team
+        </h2>
+        <p
+          class="text-xl text-base-content/70 text-center mb-16 max-w-2xl mx-auto"
+        >
+          The passionate individuals behind Penguin Fashion's success
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="card bg-base-100 shadow-xl text-center animate-fadeInUp">
+            <div class="card-body">
+              <div class="avatar mx-auto mb-4">
+                <div class="w-24 h-24 rounded-full">
+                  <img
+                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80"
+                    alt="Sarah Chen"
+                  />
+                </div>
+              </div>
+              <h3 class="card-title justify-center text-xl">Sarah Chen</h3>
+              <p class="text-primary font-semibold">Founder & CEO</p>
+              <p class="text-base-content/70 mt-2">
+                Former professional snowboarder with a passion for functional
+                fashion.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="card bg-base-100 shadow-xl text-center animate-fadeInUp delay-100"
+          >
+            <div class="card-body">
+              <div class="avatar mx-auto mb-4">
+                <div class="w-24 h-24 rounded-full">
+                  <img
+                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80"
+                    alt="Marcus Rodriguez"
+                  />
+                </div>
+              </div>
+              <h3 class="card-title justify-center text-xl">
+                Marcus Rodriguez
+              </h3>
+              <p class="text-primary font-semibold">Head Designer</p>
+              <p class="text-base-content/70 mt-2">
+                Fashion Institute graduate with 12 years of outerwear design
+                experience.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="card bg-base-100 shadow-xl text-center animate-fadeInUp delay-200"
+          >
+            <div class="card-body">
+              <div class="avatar mx-auto mb-4">
+                <div class="w-24 h-24 rounded-full">
+                  <img
+                    src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80"
+                    alt="Emily Watson"
+                  />
+                </div>
+              </div>
+              <h3 class="card-title justify-center text-xl">Emily Watson</h3>
+              <p class="text-primary font-semibold">Quality Manager</p>
+              <p class="text-base-content/70 mt-2">
+                Perfectionist with an eye for detail and commitment to
+                excellence.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="card bg-base-100 shadow-xl text-center animate-fadeInUp delay-300"
+          >
+            <div class="card-body">
+              <div class="avatar mx-auto mb-4">
+                <div class="w-24 h-24 rounded-full">
+                  <img
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80"
+                    alt="David Kim"
+                  />
+                </div>
+              </div>
+              <h3 class="card-title justify-center text-xl">David Kim</h3>
+              <p class="text-primary font-semibold">Customer Experience</p>
+              <p class="text-base-content/70 mt-2">
+                Dedicated to ensuring every customer has an exceptional
+                experience.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sustainability -->
+    <section class="py-20 bg-base-100">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="animate-fadeInUp">
+            <h2 class="text-4xl lg:text-5xl font-bold mb-6 title-font">
+              Our Commitment to Sustainability
+            </h2>
+            <p class="text-lg text-base-content/70 mb-6">
+              We believe fashion should be beautiful inside and out. That's why
+              we're committed to sustainable practices throughout our entire
+              supply chain.
+            </p>
+            <div class="space-y-4">
+              <div class="flex items-center space-x-3">
+                <i class="fas fa-check-circle text-primary"></i>
+                <span>100% Recyclable Packaging</span>
+              </div>
+              <div class="flex items-center space-x-3">
+                <i class="fas fa-check-circle text-primary"></i>
+                <span>Ethical Manufacturing Partners</span>
+              </div>
+              <div class="flex items-center space-x-3">
+                <i class="fas fa-check-circle text-primary"></i>
+                <span>Water-Based Waterproofing</span>
+              </div>
+              <div class="flex items-center space-x-3">
+                <i class="fas fa-check-circle text-primary"></i>
+                <span>Carbon-Neutral Shipping</span>
+              </div>
+              <div class="flex items-center space-x-3">
+                <i class="fas fa-check-circle text-primary"></i>
+                <span>Repair & Recycle Program</span>
+              </div>
+            </div>
+          </div>
+          <div class="animate-fadeInUp delay-200">
+            <img
+              src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+              alt="Sustainable Materials"
+              class="rounded-2xl shadow-2xl w-full"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 bg-primary text-primary-content">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-4xl lg:text-5xl font-bold mb-4 title-font">
+          Join Our Winter Family
+        </h2>
+        <p class="text-xl mb-8 max-w-2xl mx-auto">
+          Experience the difference that passion, quality, and dedication make.
+          Join thousands of satisfied customers who trust Penguin Fashion for
+          their winter adventures.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="shop.html" class="btn btn-accent btn-lg">
+            <i class="fas fa-shopping-cart mr-2"></i>Shop Collection
+          </a>
+          <a
+            href="../index.html#deals"
+            class="btn btn-outline btn-lg text-white border-white hover:bg-white hover:text-primary"
+          >
+            <i class="fas fa-tag mr-2"></i>View Deals
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer p-10 bg-neutral text-neutral-content">
+      <div class="container mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div>
+            <a class="penguin-logo text-white mb-4">PENGUIN FASHION</a>
+            <p class="mb-4">
+              Premium winter wear for every adventure. Stay warm, stay stylish
+              with Penguin Fashion.
+            </p>
+            <div class="social-icons">
+              <a href="#" class="social-icon">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-pinterest"></i>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <span class="footer-title">Shop</span>
+            <div class="footer-links">
+              <a href="#men-jackets">Men's Collection</a>
+              <a href="#women-jackets">Women's Collection</a>
+              <a href="#accessories">Accessories</a>
+              <a href="#footwear">Footwear</a>
+              <a href="#new-arrivals">New Arrivals</a>
+              <a href="#best-sellers">Best Sellers</a>
+            </div>
+          </div>
+
+          <div>
+            <span class="footer-title">Customer Service</span>
+            <div class="footer-links">
+              <a href="#contact">Contact Us</a>
+              <a href="#shipping">Shipping Info</a>
+              <a href="#returns">Returns & Exchanges</a>
+              <a href="#size-guide">Size Guide</a>
+              <a href="#care-guide">Care Guide</a>
+              <a href="#faq">FAQ</a>
+            </div>
+          </div>
+
+          <div>
+            <span class="footer-title">Company</span>
+            <div class="footer-links">
+              <a href="about.html">About Us</a>
+              <a href="#story">Our Story</a>
+              <a href="#sustainability">Sustainability</a>
+              <a href="#careers">Careers</a>
+              <a href="#press">Press</a>
+              <a href="#affiliates">Affiliate Program</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="border-t border-base-300 mt-12 pt-8">
+          <div class="flex flex-col lg:flex-row justify-between items-center">
+            <div class="text-center lg:text-left mb-4 lg:mb-0">
+              <p>&copy; 2024 Penguin Fashion. All rights reserved.</p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-4">
+              <a href="#privacy" class="link link-hover">Privacy Policy</a>
+              <a href="#terms" class="link link-hover">Terms of Service</a>
+              <a href="#cookies" class="link link-hover">Cookie Policy</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../js/theme.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/cart.js"></script>
+    <script src="../js/products.js"></script>
+    <script src="../js/script.js"></script>
+  </body>
+</html>
