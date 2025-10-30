@@ -204,7 +204,7 @@ h6 {
   backdrop-filter: blur(10px);
   background: rgba(255, 255, 255, 0.95);
   border-bottom: 1px solid var(--border);
-  transition: background 0.3s ease;
+  padding: 10px 0; /* Fixed padding issues */
 }
 
 [data-theme="dark"] .navbar {
@@ -240,6 +240,13 @@ h6 {
 
 .nav-link:hover::after {
   width: 80%;
+}
+
+/* Mega Menu - Fixed hover */
+.nav-item:hover .mega-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 /* Cart Notification */
@@ -389,10 +396,11 @@ h6 {
   margin-top: 4px;
 }
 
-/* Footer */
+/* Footer - Fixed for consistency and responsiveness */
 .footer {
   background: var(--theme-card);
   border-top: 1px solid var(--border);
+  padding: 40px 0; /* Better padding */
 }
 
 .footer-title {
@@ -419,6 +427,7 @@ h6 {
   display: flex;
   gap: 16px;
   margin-top: 16px;
+  justify-content: center; /* Centered for mobile */
 }
 
 .social-icon {
@@ -630,7 +639,7 @@ h6 {
   border-left-color: var(--warning);
 }
 
-/* Mobile Menu */
+/* Mobile Menu - Fixed for better visibility */
 .mobile-menu {
   position: fixed;
   top: 0;
@@ -665,6 +674,7 @@ h6 {
   border-bottom: 1px solid var(--border);
   font-size: 1.1rem;
   transition: all 0.3s ease;
+  text-align: center; /* Centered for better look */
 }
 
 .mobile-nav-link:hover {
@@ -672,7 +682,7 @@ h6 {
   padding-left: 10px;
 }
 
-/* Mega Menu */
+/* Mega Menu - Fixed hover and responsive */
 .mega-menu {
   position: absolute;
   top: 100%;
@@ -687,13 +697,10 @@ h6 {
   transform: translateY(-10px);
   transition: all 0.3s ease;
   z-index: 999;
+  display: none; /* Initially hidden, shown on hover */
 }
 
-.nav-item:hover .mega-menu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
+/* mega navbar */
 
 .mega-menu-column h4 {
   color: var(--theme-primary);

@@ -198,8 +198,6 @@ class AuthSystem {
         name: `User from ${provider}`,
         email: `user@${provider}.com`,
         avatar: this.generateAvatar(`User ${provider}`),
-        provider: provider,
-        socialLogin: true,
       };
       this.isAuthenticated = true;
 
@@ -210,11 +208,7 @@ class AuthSystem {
 
       window.dispatchEvent(
         new CustomEvent("authChange", {
-          detail: {
-            user: this.currentUser,
-            action: "socialLogin",
-            provider: provider,
-          },
+          detail: { user: this.currentUser, action: "socialLogin" },
         })
       );
     } catch (error) {
@@ -342,7 +336,7 @@ class AuthSystem {
     this.showToast(message, "success");
   }
 
-  showToast(message, type) {
+  showToast(message, type = "info") {
     if (window.penguinApp && window.penguinApp.showToast) {
       window.penguinApp.showToast(message, type);
     } else {

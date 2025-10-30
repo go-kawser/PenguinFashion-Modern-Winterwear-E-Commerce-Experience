@@ -31,7 +31,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@300;500&family=Roboto:wght@400;500;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neueandfamily=Oswald:wght@300;500andfamily=Roboto:wght@400;500;700;900anddisplay=swap"
       rel="stylesheet"
     />
   </head>
@@ -379,8 +379,8 @@
                     <div class="mega-menu-column">
                       <h4>Men's Collection</h4>
                       <div class="mega-menu-links">
-                        <a href="#men-jackets">Jackets & Coats</a>
-                        <a href="#men-sweaters">Sweaters & Hoodies</a>
+                        <a href="#men-jackets">Jackets and Coats</a>
+                        <a href="#men-sweaters">Sweaters and Hoodies</a>
                         <a href="#men-pants">Winter Pants</a>
                         <a href="#men-accessories">Accessories</a>
                       </div>
@@ -388,8 +388,8 @@
                     <div class="mega-menu-column">
                       <h4>Women's Collection</h4>
                       <div class="mega-menu-links">
-                        <a href="#women-jackets">Jackets & Coats</a>
-                        <a href="#women-sweaters">Sweaters & Cardigans</a>
+                        <a href="#women-jackets">Jackets and Coats</a>
+                        <a href="#women-sweaters">Sweaters and Cardigans</a>
                         <a href="#women-dresses">Winter Dresses</a>
                         <a href="#women-accessories">Accessories</a>
                       </div>
@@ -397,12 +397,13 @@
                     <div class="mega-menu-column">
                       <h4>Accessories</h4>
                       <div class="mega-menu-links">
-                        <a href="#hats">Hats & Beanies</a>
-                        <a href="#scarves">Scarves & Gloves</a>
+                        <a href="#hats">Hats and Beanies</a>
+                        <a href="#scarves">Scarves and Gloves</a>
                         <a href="#boots">Winter Boots</a>
                         <a href="#socks">Thermal Socks</a>
                       </div>
                     </div>
+
                     <div class="mega-menu-column">
                       <h4>Featured</h4>
                       <div class="mega-menu-links">
@@ -628,13 +629,13 @@
                         class="btn btn-ghost btn-sm rating-filter"
                         data-rating="4"
                       >
-                        4★ & Up
+                        4★ and Up
                       </button>
                       <button
                         class="btn btn-ghost btn-sm rating-filter"
                         data-rating="3"
                       >
-                        3★ & Up
+                        3★ and Up
                       </button>
                     </div>
                   </div>
@@ -709,7 +710,7 @@
       </div>
     </section>
 
-    <!-- Footer (Consistent across all pages) -->
+    <!-- Footer - Fixed for consistency -->
     <footer class="footer p-10 bg-neutral text-neutral-content">
       <div class="container mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -752,7 +753,7 @@
             <div class="footer-links">
               <a href="#contact">Contact Us</a>
               <a href="#shipping">Shipping Info</a>
-              <a href="#returns">Returns & Exchanges</a>
+              <a href="#returns">Returns and Exchanges</a>
               <a href="#size-guide">Size Guide</a>
               <a href="#care-guide">Care Guide</a>
               <a href="#faq">FAQ</a>
@@ -775,7 +776,7 @@
         <div class="border-t border-base-300 mt-12 pt-8">
           <div class="flex flex-col lg:flex-row justify-between items-center">
             <div class="text-center lg:text-left mb-4 lg:mb-0">
-              <p>&copy; 2024 Penguin Fashion. All rights reserved.</p>
+              <p>andcopy; 2024 Penguin Fashion. All rights reserved.</p>
             </div>
             <div class="flex flex-wrap justify-center gap-4">
               <a href="#privacy" class="link link-hover">Privacy Policy</a>
@@ -793,78 +794,5 @@
     <script src="../js/cart.js"></script>
     <script src="../js/products.js"></script>
     <script src="../js/script.js"></script>
-
-    <script>
-      // Shop-specific JavaScript
-      document.addEventListener("DOMContentLoaded", function () {
-        // Initialize shop functionality
-        const shopManager = new ProductManager();
-
-        // Enhanced filtering for shop page
-        const priceRange = document.getElementById("price-range");
-        if (priceRange) {
-          priceRange.addEventListener("input", function (e) {
-            const maxPrice = parseInt(e.target.value);
-            document.getElementById(
-              "price-display"
-            ).textContent = `Up to $${maxPrice}`;
-            shopManager.filters.priceRange[1] = maxPrice;
-            shopManager.applyFilters();
-          });
-        }
-
-        // Sort options
-        document.querySelectorAll(".sort-option").forEach((option) => {
-          option.addEventListener("click", function (e) {
-            e.preventDefault();
-            const sortBy = this.dataset.sort;
-            shopManager.filters.sortBy = sortBy;
-            shopManager.applyFilters();
-
-            // Update UI
-            document
-              .querySelectorAll(".sort-option")
-              .forEach((opt) => opt.classList.remove("active"));
-            this.classList.add("active");
-          });
-        });
-
-        // Rating filters
-        document.querySelectorAll(".rating-filter").forEach((button) => {
-          button.addEventListener("click", function () {
-            const rating = parseInt(this.dataset.rating);
-            shopManager.filterByRating(rating);
-
-            // Update UI
-            document
-              .querySelectorAll(".rating-filter")
-              .forEach((btn) => btn.classList.remove("active"));
-            this.classList.add("active");
-          });
-        });
-
-        // Category filters
-        document.querySelectorAll(".category-filter").forEach((button) => {
-          button.addEventListener("click", function () {
-            const category = this.dataset.category;
-            shopManager.filterByCategory(category);
-
-            // Update UI
-            document
-              .querySelectorAll(".category-filter")
-              .forEach((btn) => btn.classList.remove("active"));
-            this.classList.add("active");
-          });
-        });
-
-        // Search functionality
-        const searchInput = document.getElementById("product-search");
-        if (searchInput) {
-          searchInput.addEventListener("input", function (e) {
-            shopManager.searchProducts(e.target.value);
-          });
-        }
-      });
-    </script>
   </body>
 </html>

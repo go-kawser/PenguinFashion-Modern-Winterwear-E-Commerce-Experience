@@ -483,7 +483,9 @@
               <div
                 tabindex="0"
                 class="mt-3 z-[1] card card-compact dropdown-content cart-dropdown-content w-80 bg-base-100 shadow"
-              ></div>
+              >
+                <!-- Cart items will be populated by JavaScript -->
+              </div>
             </div>
           </div>
         </div>
@@ -516,7 +518,6 @@
                 src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
                 alt="Men's Collection"
                 class="w-full h-full object-cover"
-                loading="lazy"
               />
             </figure>
             <div class="card-body justify-end p-8">
@@ -541,7 +542,6 @@
                 src="https://images.unsplash.com/photo-1536678891919-e0e7d61a4b15?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
                 alt="Women's Collection"
                 class="w-full h-full object-cover"
-                loading="lazy"
               />
             </figure>
             <div class="card-body justify-end p-8">
@@ -568,7 +568,6 @@
                 src="https://images.unsplash.com/photo-1519241047957-be31d7379a5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
                 alt="Accessories"
                 class="w-full h-full object-cover"
-                loading="lazy"
               />
             </figure>
             <div class="card-body justify-end p-8">
@@ -895,7 +894,7 @@
       </div>
     </section>
 
-    <!-- Footer (Consistent across all pages) -->
+    <!-- Footer - Fixed for consistency -->
     <footer class="footer p-10 bg-neutral text-neutral-content">
       <div class="container mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -979,84 +978,5 @@
     <script src="../js/cart.js"></script>
     <script src="../js/products.js"></script>
     <script src="../js/script.js"></script>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Load featured products for categories page
-        const productManager = new ProductManager();
-
-        // Display featured products (highest rated from each category)
-        const featuredContainer = document.getElementById("featured-products");
-        if (featuredContainer) {
-          const featuredProducts = productManager.getFeaturedProducts();
-          featuredContainer.innerHTML = featuredProducts
-            .map(
-              (product) => `
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="${product.image}" alt="${
-                product.name
-              }" loading="lazy">
-                            ${
-                              product.discount
-                                ? `<div class="discount-badge">-${product.discount}%</div>`
-                                : ""
-                            }
-                        </div>
-                        <div class="card-body p-4">
-                            <div class="rating mb-2">
-                                ${productManager.generateStarRating(
-                                  product.rating
-                                )}
-                                <span class="text-sm ml-2">(${
-                                  product.reviews
-                                })</span>
-                            </div>
-                            <h3 class="card-title text-lg mb-2">${
-                              product.name
-                            }</h3>
-                            <div class="card-actions justify-between items-center">
-                                <span class="text-2xl font-bold">$${
-                                  product.price
-                                }</span>
-                                <button class="btn btn-primary add-to-cart" 
-                                        data-id="${product.id}"
-                                        data-name="${product.name}"
-                                        data-price="${product.price}"
-                                        data-image="${product.image}">
-                                    Add to Cart
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                `
-            )
-            .join("");
-
-          // Add event listeners to featured products
-          featuredContainer.querySelectorAll(".add-to-cart").forEach((btn) => {
-            btn.addEventListener("click", (e) => {
-              const productId = e.currentTarget.dataset.id;
-              const product = productManager.products.find(
-                (p) => p.id == productId
-              );
-
-              if (product && window.cart) {
-                window.cart.addItem(product);
-              }
-            });
-          });
-        }
-
-        // Category navigation
-        document.querySelectorAll(".mega-menu-links a").forEach((link) => {
-          link.addEventListener("click", function (e) {
-            e.preventDefault();
-            const category = this.getAttribute("href").split("=")[1];
-            window.location.href = `shop.html?category=${category}`;
-          });
-        });
-      });
-    </script>
   </body>
 </html>

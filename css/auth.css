@@ -343,7 +343,7 @@
   }
 
   .social-buttons {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 
   .form-options {
@@ -351,6 +351,15 @@
     gap: 15px;
     align-items: flex-start;
   }
+
+  .auth-tabs {
+    flex-direction: column;
+  }
+
+  .auth-tab {
+    width: 100%;
+    margin-bottom: 10px;
+  }
 }
 
-/* Auth End */
+/* Auth End  */

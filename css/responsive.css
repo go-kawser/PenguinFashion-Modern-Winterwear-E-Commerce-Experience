@@ -1,6 +1,4 @@
 /* Responsive CSS Start */
-
-/* Large desktops */
 @media (max-width: 1200px) {
   .container {
     max-width: 1140px;
@@ -9,13 +7,8 @@
   .hero-title {
     font-size: 3.5rem;
   }
-
-  .product-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
 }
 
-/* Desktops and laptops */
 @media (max-width: 992px) {
   .container {
     max-width: 960px;
@@ -26,11 +19,11 @@
   }
 
   .navbar-center {
-    display: none; /* Hide desktop nav on smaller screens */
+    display: none;
   }
 
   .mobile-menu-btn {
-    display: block; /* Show mobile menu button */
+    display: block;
   }
 
   .mega-menu {
@@ -38,15 +31,18 @@
   }
 
   .product-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .footer-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .social-buttons {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-/* Tablets */
 @media (max-width: 768px) {
   .container {
     max-width: 720px;
@@ -66,15 +62,6 @@
     padding: 40px 20px;
   }
 
-  .hero-buttons {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .hero-buttons .btn {
-    width: 100%;
-  }
-
   .product-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -85,7 +72,7 @@
   }
 
   .footer-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
   }
 
   .theme-dropdown {
@@ -101,21 +88,27 @@
     transform: translate(-50%, -50%) scale(1);
   }
 
-  .auth-container {
-    padding: 30px 20px;
-    margin: 0 15px;
-  }
-
   .social-buttons {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
   }
 
   .search-container {
     padding: 20px;
   }
+
+  .auth-container {
+    padding: 30px 20px;
+  }
+
+  .navbar {
+    padding: 0 15px;
+  }
+
+  .mobile-menu {
+    width: 80%; /* Better mobile menu width */
+  }
 }
 
-/* Mobile phones */
 @media (max-width: 576px) {
   .container {
     max-width: 540px;
@@ -126,8 +119,13 @@
     font-size: 2rem;
   }
 
-  .section-title {
-    font-size: 2rem;
+  .hero-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
   }
 
   .product-grid {
@@ -152,12 +150,15 @@
   }
 
   .social-buttons {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .search-container {
+    padding: 20px;
   }
 
   .auth-container {
-    padding: 20px 15px;
-    margin: 10px;
+    padding: 30px 20px;
   }
 
   .auth-tabs {
@@ -169,28 +170,22 @@
     margin-bottom: 10px;
   }
 
-  .navbar-start,
-  .navbar-end {
-    flex: 1;
+  .footer-links {
+    text-align: center;
   }
 
-  .penguin-logo {
-    font-size: 1.8rem;
-  }
-
-  .mobile-menu {
-    width: 100vw;
+  .social-icons {
+    justify-content: center;
   }
 }
 
-/* Small mobile phones */
 @media (max-width: 400px) {
   .hero-title {
     font-size: 1.8rem;
   }
 
   .section-title {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
 
   .countdown-grid {
@@ -206,9 +201,8 @@
     font-size: 1.5rem;
   }
 
-  .auth-btn {
-    font-size: 1rem;
-    padding: 10px;
+  .navbar {
+    padding: 0 10px;
   }
 }
 
@@ -234,7 +228,6 @@
   }
 }
 
-/* High Contrast Mode */
 @media (prefers-contrast: high) {
   :root {
     --border: #000000;
@@ -246,7 +239,6 @@
   }
 }
 
-/* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;
@@ -255,7 +247,6 @@
   }
 }
 
-/* Dark Mode Preference */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
     --theme-primary: #4caf87;
@@ -268,7 +259,6 @@
   }
 }
 
-/* Touch Devices */
 @media (hover: none) and (pointer: coarse) {
   .product-card:hover {
     transform: none;
@@ -290,7 +280,6 @@
   }
 }
 
-/* Landscape Orientation on Small Height */
 @media (max-height: 600px) and (orientation: landscape) {
   .hero-bg {
     min-height: 100vh;
@@ -302,7 +291,6 @@
   }
 }
 
-/* Extra Large Screens */
 @media (min-width: 2000px) {
   .container {
     max-width: 1800px;
