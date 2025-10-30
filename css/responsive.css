@@ -1,4 +1,6 @@
 /* Responsive CSS Start */
+
+/* Large desktops */
 @media (max-width: 1200px) {
   .container {
     max-width: 1140px;
@@ -7,8 +9,13 @@
   .hero-title {
     font-size: 3.5rem;
   }
+
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
+/* Desktops and laptops */
 @media (max-width: 992px) {
   .container {
     max-width: 960px;
@@ -19,21 +26,31 @@
   }
 
   .navbar-center {
-    display: none;
+    display: none; /* Hide desktop nav on smaller screens */
   }
 
   .mobile-menu-btn {
-    display: block;
+    display: block; /* Show mobile menu button */
   }
 
   .mega-menu {
-    display: none;
+    display: none; /* Hide mega menu on smaller screens */
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
+/* Tablets */
 @media (max-width: 768px) {
   .container {
     max-width: 720px;
+    padding: 0 15px;
   }
 
   .hero-bg {
@@ -47,6 +64,15 @@
 
   .hero-content {
     padding: 40px 20px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
   }
 
   .product-grid {
@@ -74,8 +100,22 @@
   .theme-dropdown.show {
     transform: translate(-50%, -50%) scale(1);
   }
+
+  .auth-container {
+    padding: 30px 20px;
+    margin: 0 15px;
+  }
+
+  .social-buttons {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .search-container {
+    padding: 20px;
+  }
 }
 
+/* Mobile phones */
 @media (max-width: 576px) {
   .container {
     max-width: 540px;
@@ -86,13 +126,8 @@
     font-size: 2rem;
   }
 
-  .hero-buttons {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .hero-buttons .btn {
-    width: 100%;
+  .section-title {
+    font-size: 2rem;
   }
 
   .product-grid {
@@ -117,25 +152,45 @@
   }
 
   .social-buttons {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .search-container {
-    padding: 20px;
+    grid-template-columns: 1fr;
   }
 
   .auth-container {
-    padding: 30px 20px;
+    padding: 20px 15px;
+    margin: 10px;
+  }
+
+  .auth-tabs {
+    flex-direction: column;
+  }
+
+  .auth-tab {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .navbar-start,
+  .navbar-end {
+    flex: 1;
+  }
+
+  .penguin-logo {
+    font-size: 1.8rem;
+  }
+
+  .mobile-menu {
+    width: 100vw;
   }
 }
 
+/* Small mobile phones */
 @media (max-width: 400px) {
   .hero-title {
     font-size: 1.8rem;
   }
 
   .section-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 
   .countdown-grid {
@@ -149,6 +204,11 @@
 
   .countdown-number {
     font-size: 1.5rem;
+  }
+
+  .auth-btn {
+    font-size: 1rem;
+    padding: 10px;
   }
 }
 
@@ -174,6 +234,7 @@
   }
 }
 
+/* High Contrast Mode */
 @media (prefers-contrast: high) {
   :root {
     --border: #000000;
@@ -185,6 +246,7 @@
   }
 }
 
+/* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;
@@ -193,6 +255,7 @@
   }
 }
 
+/* Dark Mode Preference */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
     --theme-primary: #4caf87;
@@ -205,6 +268,7 @@
   }
 }
 
+/* Touch Devices */
 @media (hover: none) and (pointer: coarse) {
   .product-card:hover {
     transform: none;
@@ -226,6 +290,7 @@
   }
 }
 
+/* Landscape Orientation on Small Height */
 @media (max-height: 600px) and (orientation: landscape) {
   .hero-bg {
     min-height: 100vh;
@@ -237,6 +302,7 @@
   }
 }
 
+/* Extra Large Screens */
 @media (min-width: 2000px) {
   .container {
     max-width: 1800px;

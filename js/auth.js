@@ -342,7 +342,7 @@ class AuthSystem {
     this.showToast(message, "success");
   }
 
-  showToast(message, type = "info") {
+  showToast(message, type) {
     if (window.penguinApp && window.penguinApp.showToast) {
       window.penguinApp.showToast(message, type);
     } else {

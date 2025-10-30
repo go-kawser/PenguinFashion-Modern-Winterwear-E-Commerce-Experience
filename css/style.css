@@ -116,6 +116,7 @@ h6 {
   transform: scale(1.05);
   color: var(--theme-secondary);
 }
+
 /* Hero */
 .hero-bg {
   background: linear-gradient(
@@ -203,6 +204,7 @@ h6 {
   backdrop-filter: blur(10px);
   background: rgba(255, 255, 255, 0.95);
   border-bottom: 1px solid var(--border);
+  transition: background 0.3s ease;
 }
 
 [data-theme="dark"] .navbar {
