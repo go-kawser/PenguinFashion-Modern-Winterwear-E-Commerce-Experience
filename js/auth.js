@@ -1,4 +1,6 @@
-// Authentication System
+// JS Auth Start
+// ------------------------------------------------>
+// Authentication
 class AuthSystem {
   constructor() {
     this.currentUser = null;
@@ -21,7 +23,6 @@ class AuthSystem {
   }
 
   setupEventListeners() {
-    // Form submissions
     document
       .getElementById("signin-form")
       ?.addEventListener("submit", (e) => this.handleSignIn(e));
@@ -29,7 +30,6 @@ class AuthSystem {
       .getElementById("signup-form")
       ?.addEventListener("submit", (e) => this.handleSignUp(e));
 
-    // Social login buttons
     document.querySelectorAll(".social-btn").forEach((btn) => {
       btn.addEventListener("click", (e) => {
         const provider = e.currentTarget.dataset.provider;
@@ -51,7 +51,6 @@ class AuthSystem {
     const remember = formData.get("remember");
 
     try {
-      // Validate credentials
       if (!this.validateEmail(email)) {
         this.showError("signin-email", "Please enter a valid email address");
         return;
@@ -62,10 +61,7 @@ class AuthSystem {
         return;
       }
 
-      // Simulate API call
       await this.simulateAPICall(1000);
-
-      // Check if user exists (mock)
       const users = JSON.parse(localStorage.getItem("penguinUsers") || "[]");
       const user = users.find(
         (u) => u.email === email && u.password === password
@@ -80,7 +76,6 @@ class AuthSystem {
         };
         this.isAuthenticated = true;
 
-        // Save session
         if (remember) {
           localStorage.setItem("penguinUser", JSON.stringify(this.currentUser));
         } else {
@@ -94,7 +89,6 @@ class AuthSystem {
         this.showSuccess("Successfully signed in!");
         this.closeAuthModal();
 
-        // Dispatch custom event
         window.dispatchEvent(
           new CustomEvent("authChange", {
             detail: { user: this.currentUser, action: "signin" },
@@ -118,7 +112,6 @@ class AuthSystem {
     const terms = formData.get("terms");
 
     try {
-      // Validation
       if (!name) {
         this.showError("signup-name", "Please enter your name");
         return;
@@ -149,8 +142,6 @@ class AuthSystem {
         );
         return;
       }
-
-      // Check if user already exists
       const users = JSON.parse(localStorage.getItem("penguinUsers") || "[]");
       if (users.find((u) => u.email === email)) {
         this.showError(
@@ -160,15 +151,13 @@ class AuthSystem {
         return;
       }
 
-      // Simulate API call
       await this.simulateAPICall(1500);
 
-      // Create new user
       const newUser = {
         id: Date.now(),
         name: name,
         email: email,
-        password: password, // In real app, this would be hashed
+        password: password,
         avatar: this.generateAvatar(name),
         createdAt: new Date().toISOString(),
       };
@@ -176,7 +165,7 @@ class AuthSystem {
       users.push(newUser);
       localStorage.setItem("penguinUsers", JSON.stringify(users));
 
-      // Auto sign in
+      // Auto Sign In
       this.currentUser = {
         id: newUser.id,
         name: newUser.name,
@@ -190,7 +179,6 @@ class AuthSystem {
       this.showSuccess("Account created successfully!");
       this.closeAuthModal();
 
-      // Dispatch custom event
       window.dispatchEvent(
         new CustomEvent("authChange", {
           detail: { user: this.currentUser, action: "signup" },
@@ -203,10 +191,8 @@ class AuthSystem {
 
   async handleSocialLogin(provider) {
     try {
-      // Simulate social login API call
       await this.simulateAPICall(2000);
 
-      // Mock social login response
       this.currentUser = {
         id: Date.now(),
         name: `User from ${provider}`,
@@ -222,7 +208,6 @@ class AuthSystem {
       this.showSuccess(`Signed in with ${provider}`);
       this.closeAuthModal();
 
-      // Dispatch custom event
       window.dispatchEvent(
         new CustomEvent("authChange", {
           detail: {
@@ -241,14 +226,12 @@ class AuthSystem {
     this.currentUser = null;
     this.isAuthenticated = false;
 
-    // Clear storage
     localStorage.removeItem("penguinUser");
     sessionStorage.removeItem("penguinUser");
 
     this.updateUI();
     this.showSuccess("Successfully signed out!");
 
-    // Dispatch custom event
     window.dispatchEvent(
       new CustomEvent("authChange", {
         detail: { user: null, action: "logout" },
@@ -262,7 +245,6 @@ class AuthSystem {
     const guestElements = document.querySelectorAll(".guest-element");
 
     if (this.isAuthenticated && this.currentUser) {
-      // Update user info
       document.querySelectorAll(".user-name").forEach((el) => {
         el.textContent = this.currentUser.name;
       });
@@ -271,7 +253,6 @@ class AuthSystem {
         el.style.backgroundImage = `url(${this.currentUser.avatar})`;
       });
 
-      // Show user elements, hide guest elements
       authButtons.forEach((btn) => {
         if (btn.classList.contains("sign-in-btn")) {
           btn.style.display = "none";
@@ -284,7 +265,6 @@ class AuthSystem {
       userElements.forEach((el) => (el.style.display = "block"));
       guestElements.forEach((el) => (el.style.display = "none"));
     } else {
-      // Show guest elements, hide user elements
       authButtons.forEach((btn) => {
         if (btn.classList.contains("sign-in-btn")) {
           btn.style.display = "flex";
@@ -299,7 +279,6 @@ class AuthSystem {
     }
   }
 
-  // Utility Methods
   validateEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
@@ -312,7 +291,6 @@ class AuthSystem {
   }
 
   generateAvatar(name) {
-    // Generate a random avatar based on name
     const colors = [
       "#3d8361",
       "#1c6758",
@@ -322,15 +300,12 @@ class AuthSystem {
       "#ed8936",
     ];
     const color = colors[Math.floor(Math.random() * colors.length)];
-
-    // In a real app, you might use a service like DiceBear
     return `https://ui-avatars.com/api/?name=${encodeURIComponent(
       name
     )}&background=${color.slice(1)}&color=fff&size=100`;
   }
 
   showError(field, message) {
-    // Remove existing errors
     this.clearErrors();
 
     const fieldElement = document.getElementById(field);
@@ -350,7 +325,6 @@ class AuthSystem {
       errorElement.textContent = message;
       errorElement.classList.add("show");
     } else {
-      // General error
       this.showToast(message, "error");
     }
   }
@@ -369,11 +343,9 @@ class AuthSystem {
   }
 
   showToast(message, type = "info") {
-    // Use the main app's toast system if available
     if (window.penguinApp && window.penguinApp.showToast) {
       window.penguinApp.showToast(message, type);
     } else {
-      // Fallback toast
       const toast = document.createElement("div");
       toast.className = `toast ${type}`;
       toast.textContent = message;
@@ -398,7 +370,6 @@ class AuthSystem {
     });
   }
 
-  // Public methods
   getUser() {
     return this.currentUser;
   }
@@ -417,12 +388,12 @@ class AuthSystem {
   }
 }
 
-// Initialize auth system
 document.addEventListener("DOMContentLoaded", () => {
   window.authSystem = new AuthSystem();
 });
 
-// Export for module usage
 if (typeof module !== "undefined" && module.exports) {
   module.exports = AuthSystem;
 }
+
+// JS Auth End

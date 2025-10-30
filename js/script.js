@@ -1,4 +1,5 @@
-// Main Application Controller
+// Main JS Application Controller Is Here----------->>>>>>>>>>>>>
+// ----------------------------------------------------------------->>>>>>>>>>>>
 class PenguinFashionApp {
   constructor() {
     this.currentUser = null;
@@ -81,7 +82,6 @@ class PenguinFashionApp {
 
   // Product Management
   loadProducts() {
-    // Mock product data - in real app, this would come from an API
     this.products = [
       {
         id: 1,
@@ -122,7 +122,8 @@ class PenguinFashionApp {
         reviews: 95,
         inStock: true,
       },
-      // Add more products...
+      // next time many products will be added here
+      // -------------------------------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     ];
 
     this.renderProducts();
@@ -144,7 +145,8 @@ class PenguinFashionApp {
           "https://images.unsplash.com/photo-1536678891919-e0e7d61a4b15?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
         description: "Stylish winter collection for women",
       },
-      // Add more categories...
+      // next time many categories will be added here
+      // -------------------------------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     ];
 
     this.renderCategories();
@@ -270,7 +272,6 @@ class PenguinFashionApp {
 
   // Event Listeners
   setupEventListeners() {
-    // Theme switcher
     document
       .getElementById("theme-toggle")
       .addEventListener("click", () => this.toggleTheme());
@@ -324,8 +325,8 @@ class PenguinFashionApp {
     window.addEventListener("scroll", () => this.handleScroll());
   }
 
+  // Add to cart buttons
   setupProductInteractions() {
-    // Add to cart buttons
     document.querySelectorAll(".add-to-cart").forEach((btn) => {
       btn.addEventListener("click", (e) => {
         const product = {
@@ -378,7 +379,7 @@ class PenguinFashionApp {
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem("penguinTheme", theme);
 
-    // Update theme toggle icon
+    // On theme toggle icon
     const themeIcon = document.getElementById("theme-icon");
     if (theme === "dark") {
       themeIcon.className = "fas fa-sun";
@@ -405,7 +406,7 @@ class PenguinFashionApp {
     });
   }
 
-  // Search Functionality
+  // Search
   setupSearch() {
     const searchInput = document.getElementById("search-input");
     const searchResults = document.getElementById("search-results");
@@ -458,7 +459,6 @@ class PenguinFashionApp {
         )
         .join("");
 
-      // Add click events to search results
       container
         .querySelectorAll(".search-result-item")
         .forEach((item, index) => {
@@ -481,7 +481,6 @@ class PenguinFashionApp {
 
   // Navigation
   setupNavigation() {
-    // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       anchor.addEventListener("click", function (e) {
         e.preventDefault();
@@ -495,7 +494,7 @@ class PenguinFashionApp {
       });
     });
 
-    // Active navigation highlighting
+    // Active navigation
     window.addEventListener("scroll", () => {
       const sections = document.querySelectorAll("section");
       const navLinks = document.querySelectorAll(".nav-link");
@@ -520,7 +519,6 @@ class PenguinFashionApp {
 
   // Authentication
   setupAuth() {
-    // Tab switching
     document.querySelectorAll(".auth-tab").forEach((tab) => {
       tab.addEventListener("click", (e) => {
         const target = e.target.dataset.tab;
@@ -564,8 +562,8 @@ class PenguinFashionApp {
     }
   }
 
+  // Update tabs
   switchAuthTab(tab) {
-    // Update tabs
     document
       .querySelectorAll(".auth-tab")
       .forEach((t) => t.classList.remove("active"));
@@ -585,7 +583,6 @@ class PenguinFashionApp {
     const password = formData.get("password");
     const remember = formData.get("remember");
 
-    // Mock authentication - in real app, this would be an API call
     if (email && password) {
       this.currentUser = {
         id: 1,
@@ -631,7 +628,6 @@ class PenguinFashionApp {
   }
 
   handleSocialLogin(provider) {
-    // Mock social login - in real app, this would integrate with OAuth providers
     this.currentUser = {
       id: Date.now(),
       name: `User from ${provider}`,
@@ -681,13 +677,10 @@ class PenguinFashionApp {
 
   // Cart Management
   setupCart() {
-    // Cart functionality is handled in cart.js
-    // This is just for initialization
     this.updateCartCount();
   }
 
   addToCart(product) {
-    // This would be handled by the Cart class in cart.js
     const cart = new Cart();
     cart.addItem(product);
     this.showCartNotification();
@@ -712,10 +705,7 @@ class PenguinFashionApp {
   }
 
   // Ratings System
-  setupRatings() {
-    // This would handle interactive rating system
-    // For now, we're just displaying static ratings
-  }
+  setupRatings() {}
 
   // Newsletter
   setupNewsletter() {
@@ -740,7 +730,6 @@ class PenguinFashionApp {
     const email = formData.get("email");
 
     if (email && this.validateEmail(email)) {
-      // Save to localStorage or send to API
       const subscribers = JSON.parse(
         localStorage.getItem("newsletterSubscribers") || "[]"
       );
@@ -774,12 +763,11 @@ class PenguinFashionApp {
   updateCountdown() {
     const now = new Date();
     const target = new Date();
-    target.setHours(23, 59, 59, 999); // End of day
+    target.setHours(23, 59, 59, 999);
 
     const diff = target - now;
 
     if (diff <= 0) {
-      // Reset for next day
       target.setDate(target.getDate() + 1);
       return;
     }
@@ -806,7 +794,7 @@ class PenguinFashionApp {
       elements.seconds.textContent = seconds.toString().padStart(2, "0");
   }
 
-  // Utility Methods
+  // Utility Methods is here:--->
   toggleMobileMenu() {
     const menu = document.getElementById("mobile-menu");
     menu.classList.toggle("show");
@@ -896,7 +884,6 @@ class PenguinFashionApp {
   showQuickView(productId) {
     const product = this.products.find((p) => p.id == productId);
     if (product) {
-      // Implement quick view modal
       this.showToast(`Quick view: ${product.name}`, "info");
     }
   }
@@ -904,7 +891,6 @@ class PenguinFashionApp {
   toggleWishlist(productId) {
     const product = this.products.find((p) => p.id == productId);
     if (product) {
-      // Implement wishlist functionality
       this.showToast(`Added ${product.name} to wishlist`, "success");
     }
   }
@@ -912,18 +898,18 @@ class PenguinFashionApp {
   showProductDetail(productId) {
     const product = this.products.find((p) => p.id == productId);
     if (product) {
-      // Implement product detail view
       this.showToast(`Viewing: ${product.name}`, "info");
     }
   }
 }
 
-// Initialize the application when DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
   window.penguinApp = new PenguinFashionApp();
 });
 
-// Export for module usage if needed
 if (typeof module !== "undefined" && module.exports) {
   module.exports = PenguinFashionApp;
 }
+
+// >>>>>>>>>>>>>>>>>>End>>>>>>>>>>>>>>>>>>>>>>>>
+// -------------------------------------------------->

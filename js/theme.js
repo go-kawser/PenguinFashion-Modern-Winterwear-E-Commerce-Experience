@@ -1,4 +1,5 @@
-// Theme Management System
+// Theme Management
+// --------------------------------->>>>>>
 class ThemeManager {
   constructor() {
     this.themes = [
@@ -45,7 +46,6 @@ class ThemeManager {
   }
 
   setupEventListeners() {
-    // Theme toggle button
     document.getElementById("theme-toggle")?.addEventListener("click", () => {
       this.toggleTheme();
     });
@@ -58,12 +58,10 @@ class ThemeManager {
         this.toggleThemeDropdown();
       });
 
-    // Close dropdown on outside click
     document.addEventListener("click", () => {
       this.hideThemeDropdown();
     });
 
-    // Listen for system theme changes
     window
       .matchMedia("(prefers-color-scheme: dark)")
       .addEventListener("change", (e) => {
@@ -105,7 +103,6 @@ class ThemeManager {
             </div>
         `;
 
-    // Add event listeners to theme options
     dropdown.querySelectorAll(".theme-option").forEach((option) => {
       option.addEventListener("click", (e) => {
         const theme = e.currentTarget.dataset.theme;
@@ -153,7 +150,6 @@ class ThemeManager {
     const themeIcon = document.getElementById("theme-icon");
     if (!themeIcon) return;
 
-    // Use sun icon for dark theme, moon for others
     if (this.currentTheme === "dark") {
       themeIcon.className = "fas fa-sun";
     } else {
@@ -168,7 +164,6 @@ class ThemeManager {
       if (option.dataset.theme === this.currentTheme) {
         option.classList.add("active");
 
-        // Update check icon
         let checkIcon = option.querySelector(".fa-check");
         if (!checkIcon) {
           checkIcon = document.createElement("i");
@@ -201,19 +196,18 @@ class ThemeManager {
     return this.themes;
   }
 
-  // Utility method to update CSS variables dynamically
   updateCSSVariables(primary, secondary) {
     document.documentElement.style.setProperty("--theme-primary", primary);
     document.documentElement.style.setProperty("--theme-secondary", secondary);
   }
 }
 
-// Initialize theme manager
 document.addEventListener("DOMContentLoaded", () => {
   window.themeManager = new ThemeManager();
 });
 
-// Export for module usage
 if (typeof module !== "undefined" && module.exports) {
   module.exports = ThemeManager;
 }
+
+// Theme End ------->>>

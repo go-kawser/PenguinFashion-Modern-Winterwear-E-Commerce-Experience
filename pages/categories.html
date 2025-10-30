@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="../css/auth.css" />
     <link rel="stylesheet" href="../css/responsive.css" />
 
-    <!-- Tailwind CSS with DaisyUI -->
+    <!-- Tailwind CSS with DaisyUI Component -->
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@3.1.0/dist/full.css"
       rel="stylesheet"
@@ -42,9 +42,7 @@
         <button id="theme-toggle" class="btn btn-circle btn-primary shadow-lg">
           <i id="theme-icon" class="fas fa-moon"></i>
         </button>
-        <div id="theme-dropdown" class="theme-dropdown">
-          <!-- Theme options will be populated by JavaScript -->
-        </div>
+        <div id="theme-dropdown" class="theme-dropdown"></div>
       </div>
     </div>
 
@@ -81,9 +79,10 @@
             </button>
           </div>
         </div>
-        <div id="search-results" class="mt-4 max-h-60 overflow-y-auto hidden">
-          <!-- Search results will be populated by JavaScript -->
-        </div>
+        <div
+          id="search-results"
+          class="mt-4 max-h-60 overflow-y-auto hidden"
+        ></div>
       </div>
     </div>
 

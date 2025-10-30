@@ -1,4 +1,4 @@
-/* CSS Reset and Base Styles */
+/* CSS Style Code */
 * {
   margin: 0;
   padding: 0;
@@ -116,8 +116,7 @@ h6 {
   transform: scale(1.05);
   color: var(--theme-secondary);
 }
-
-/* Enhanced Hero Section */
+/* Hero */
 .hero-bg {
   background: linear-gradient(
       120deg,
@@ -141,7 +140,7 @@ h6 {
       center/cover;
 }
 
-/* Enhanced Product Cards */
+/* Product Cards */
 .product-card {
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   background: var(--theme-card);
@@ -199,7 +198,7 @@ h6 {
   z-index: 2;
 }
 
-/* Enhanced Navigation */
+/* Navigation */
 .navbar {
   backdrop-filter: blur(10px);
   background: rgba(255, 255, 255, 0.95);
@@ -388,7 +387,7 @@ h6 {
   margin-top: 4px;
 }
 
-/* Enhanced Footer */
+/* Footer */
 .footer {
   background: var(--theme-card);
   border-top: 1px solid var(--border);
@@ -712,3 +711,5 @@ h6 {
   border-bottom-color: var(--theme-primary);
   padding-left: 8px;
 }
+
+/* CSS Style Code End */

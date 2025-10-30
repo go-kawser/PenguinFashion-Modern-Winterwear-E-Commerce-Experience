@@ -1,4 +1,5 @@
-// Product Management System
+// Product Management
+// ------------------------------------------------------------>>>
 class ProductManager {
   constructor() {
     this.products = [];
@@ -20,11 +21,10 @@ class ProductManager {
     this.renderCategories();
   }
 
+  // products data
   async loadProducts() {
-    // Simulate API call
     await this.simulateAPICall(1000);
 
-    // Mock product data
     this.products = [
       {
         id: 1,
@@ -217,8 +217,8 @@ class ProductManager {
     ];
   }
 
+  // Category filters
   setupEventListeners() {
-    // Category filters
     document.querySelectorAll(".category-filter").forEach((button) => {
       button.addEventListener("click", (e) => {
         const category = e.currentTarget.dataset.category;
@@ -253,7 +253,7 @@ class ProductManager {
       });
     }
 
-    // Search functionality
+    // Search
     const searchInput = document.getElementById("product-search");
     if (searchInput) {
       searchInput.addEventListener("input", (e) => {
@@ -371,7 +371,6 @@ class ProductManager {
   }
 
   setupProductInteractions() {
-    // Add to cart buttons
     document.querySelectorAll(".add-to-cart").forEach((btn) => {
       btn.addEventListener("click", (e) => {
         const productId = e.currentTarget.dataset.id;
@@ -433,7 +432,7 @@ class ProductManager {
     this.filters.rating = rating;
     this.applyFilters();
 
-    // Update active rating
+    // Active rating
     document.querySelectorAll(".rating-filter").forEach((btn) => {
       btn.classList.remove("active");
       if (parseInt(btn.dataset.rating) === rating) {
@@ -517,7 +516,6 @@ class ProductManager {
     const product = this.products.find((p) => p.id == productId);
     if (!product) return;
 
-    // Create quick view modal
     const modal = document.createElement("div");
     modal.className = "modal modal-open";
     modal.innerHTML = `
@@ -601,7 +599,6 @@ class ProductManager {
 
     document.body.appendChild(modal);
 
-    // Add event listener for add to cart
     modal.querySelector(".add-to-cart").addEventListener("click", () => {
       if (window.cart) {
         window.cart.addItem(product);
@@ -645,7 +642,6 @@ class ProductManager {
     }
   }
 
-  // Utility Methods
   generateStarRating(rating) {
     const fullStars = Math.floor(rating);
     const hasHalfStar = rating % 1 !== 0;
@@ -694,12 +690,11 @@ class ProductManager {
   }
 }
 
-// Initialize product manager
 document.addEventListener("DOMContentLoaded", () => {
   window.productManager = new ProductManager();
 });
 
-// Export for module usage
 if (typeof module !== "undefined" && module.exports) {
   module.exports = ProductManager;
 }
+// -------------------END--------------------->>>>>>>>>>>>>>>>>>>>

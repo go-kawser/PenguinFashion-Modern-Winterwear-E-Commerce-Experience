@@ -1,4 +1,5 @@
-// Shopping Cart System
+// Shopping Cart JS
+// ----------------------------------------------------------->
 class Cart {
   constructor() {
     this.items = [];
@@ -25,7 +26,6 @@ class Cart {
     localStorage.setItem("penguinCart", JSON.stringify(cartData));
     this.updateCartDisplay();
 
-    // Dispatch cart update event
     window.dispatchEvent(
       new CustomEvent("cartUpdate", {
         detail: { items: this.items, total: this.total },
@@ -101,16 +101,12 @@ class Cart {
   }
 
   updateCartDisplay() {
-    // Update cart count in navbar
     const cartCounts = document.querySelectorAll(".cart-count");
     cartCounts.forEach((element) => {
       element.textContent = this.getTotalItems();
     });
 
-    // Update cart dropdown
     this.updateCartDropdown();
-
-    // Update cart page if open
     this.updateCartPage();
   }
 
@@ -168,7 +164,6 @@ class Cart {
             </div>
         `;
 
-    // Add event listeners to remove buttons
     cartDropdown.querySelectorAll(".remove-item").forEach((button) => {
       button.addEventListener("click", (e) => {
         const productId = e.currentTarget.dataset.id;
@@ -307,7 +302,6 @@ class Cart {
     });
   }
 
-  // Checkout process
   async processCheckout() {
     if (this.items.length === 0) {
       this.showToast("Your cart is empty", "warning");
@@ -315,13 +309,9 @@ class Cart {
     }
 
     try {
-      // Simulate checkout process
       this.showToast("Processing your order...", "info");
-
-      // In a real app, this would integrate with a payment processor
       await this.simulateAPICall(2000);
 
-      // Clear cart after successful checkout
       this.clearCart();
       this.showToast("Order placed successfully!", "success");
 
@@ -345,12 +335,11 @@ class Cart {
   }
 }
 
-// Initialize cart system
 document.addEventListener("DOMContentLoaded", () => {
   window.cart = new Cart();
 });
 
-// Export for module usage
 if (typeof module !== "undefined" && module.exports) {
   module.exports = Cart;
 }
+// End

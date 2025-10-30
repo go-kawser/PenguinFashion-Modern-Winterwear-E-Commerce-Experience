@@ -1,3 +1,4 @@
+/* Auth CSS Start */
 /* Authentication Modal Styles */
 .auth-modal {
   position: fixed;
@@ -351,3 +352,5 @@
     align-items: flex-start;
   }
 }
+
+/* Auth End  */

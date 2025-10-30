@@ -1,4 +1,4 @@
-/* Responsive Design */
+/* Responsive CSS Start */
 @media (max-width: 1200px) {
   .container {
     max-width: 1140px;
@@ -174,7 +174,6 @@
   }
 }
 
-/* High Contrast Mode */
 @media (prefers-contrast: high) {
   :root {
     --border: #000000;
@@ -186,7 +185,6 @@
   }
 }
 
-/* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;
@@ -195,7 +193,6 @@
   }
 }
 
-/* Dark mode auto detection */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
     --theme-primary: #4caf87;
@@ -208,7 +205,6 @@
   }
 }
 
-/* Touch device optimizations */
 @media (hover: none) and (pointer: coarse) {
   .product-card:hover {
     transform: none;
@@ -222,7 +218,6 @@
     background: transparent;
   }
 
-  /* Increase touch targets */
   .btn,
   .nav-link,
   .social-icon {
@@ -231,7 +226,6 @@
   }
 }
 
-/* Landscape mobile optimizations */
 @media (max-height: 600px) and (orientation: landscape) {
   .hero-bg {
     min-height: 100vh;
@@ -243,7 +237,6 @@
   }
 }
 
-/* 4K and large screens */
 @media (min-width: 2000px) {
   .container {
     max-width: 1800px;
@@ -261,3 +254,5 @@
     grid-template-columns: repeat(4, 1fr);
   }
 }
+
+/* Responsive CSS End */
