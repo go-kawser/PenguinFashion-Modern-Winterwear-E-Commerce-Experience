@@ -1,10 +1,4 @@
-# PenguinFashion — Modern Winterwear E‑Commerce Experience
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Demo](https://img.shields.io/badge/demo-local-%23007acc.svg)](#demo)
-[![Status](https://img.shields.io/badge/status-production-yellowgreen.svg)](#)
-
-![Hero placeholder](images/banners/hero-placeholder.png)
+# PenguinFashion | Premium Winter Wear E-Commerce
 
 An elegant, responsive, and accessible static storefront prototype for a winterwear brand. This repository is designed to impress clients and hiring managers: polished UI, clear architecture, example workflows, and easy paths to production.
 
