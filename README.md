@@ -80,9 +80,9 @@ install `Live Server` in VS Code for live reload while editing.
 
 ### Key files:
 
-- `index.html` — main landing page
-- `pages/shop.html` — product listing
-- `js/cart.js` — cart logic and UI hooks
+- `index.html` - main landing page
+- `pages/shop.html` - product listing
+- `js/cart.js` - cart logic and UI hooks
 
 ---
 
@@ -154,6 +154,4 @@ For client inquiries or professional work, please link to your GitHub profile or
 - Create a `LICENSE` file (MIT) and `CONTRIBUTING.md`.
 - Scaffold a GitHub Actions workflow to publish to GitHub Pages automatically.
 
-Tell me which of those to do next and I will implement it.
-
-_Last updated: November 01, 2025_
+---
