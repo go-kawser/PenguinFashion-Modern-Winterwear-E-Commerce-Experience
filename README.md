@@ -1,6 +1,8 @@
 # PenguinFashion | Premium Winter Wear E-Commerce
 
-An elegant, responsive, and accessible static storefront prototype for a winterwear brand. This repository is designed to impress clients and hiring managers: polished UI, clear architecture, example workflows, and easy paths to production.
+##### Note: This page i used many unsplash.com website images.
+
+An elegant, responsive, and accessible static storefront prototype for a winter wear brand. This repository is designed to impress clients and hiring managers: polished UI, clear architecture, example workflows, and easy paths to production.
 
 ---
 
@@ -9,41 +11,24 @@ An elegant, responsive, and accessible static storefront prototype for a winterw
 - [Demo](#demo)
 - [Why this project](#why-this-project)
 - [What you'll find here](#what-youll-find-here)
-- [Tech stack & architecture](#tech-stack--architecture)
+- [Tech stack and architecture](#tech-stack--architecture)
 - [Quick start (PowerShell)](#quick-start-powershell)
 - [Folder structure](#folder-structure)
 - [Customization examples](#customization-examples)
-- [Deployment & CI recommendations](#deployment--ci-recommendations)
-- [Accessibility & performance](#accessibility--performance)
+- [Deployment and CI recommendations](#deployment--ci-recommendations)
+- [Accessibility and performance](#accessibility--performance)
 - [Contributing](#contributing)
-- [License & contact](#license--contact)
+- [License and contact](#license--contact)
 
 ---
 
 ## Demo
 
-Open `index.html` locally, or serve the project with a simple static server to experience the full UI and cart flows.
-
-Local preview (PowerShell):
-
-```powershell
-# Quick: Python built-in HTTP server
-python -m http.server 8000
-
-# Or using npm's serve package (if you prefer Node)
-npm init -y; npm install --no-save serve
-npx serve -s . -l 5000
-
-# Then open http://localhost:8000 or http://localhost:5000
-```
-
-Replace the hero placeholder above with a high-resolution screenshot (recommended) at `images/banners/hero.png`.
-
----
+#### Open `index.html` locally, or serve the project with a simple static server to experience the full UI and cart flows.
 
 ## Why this project
 
-This repository demonstrates a client-ready front-end experience with:
+**This repository demonstrates a client-ready front-end experience with:**
 
 - Clear product presentation and conversion-focused layout
 - Fast, dependency-free deliverable (no build step required)
@@ -64,14 +49,14 @@ Use this repo as a portfolio piece, a launchpad for production, or a reference i
 
 ---
 
-## Tech stack & architecture
+## Tech stack and architecture
 
 - HTML5 (semantic)
 - CSS3 (vanilla; organized for tokens and theme variables)
 - JavaScript (ES modules, vanilla)
 - Optional: Tailwind / DaisyUI ready for integration if you prefer utility-first styling
 
-Architecture notes
+**Architecture notes:**
 
 - Static files render the UI; `js/products.js` currently provides product data locally.
 - To go dynamic: replace `products.js` data with fetch calls to an API endpoint or headless CMS.
@@ -79,50 +64,21 @@ Architecture notes
 
 ---
 
-## Quick start (PowerShell)
+## Quick start
 
-1. Clone repository
-
-```powershell
-git clone https://github.com/Kawser420/project2.git
-cd project2
-```
-
-2. Serve the site locally (one of the options above). Example using Python:
+1. **Clone repository:**
 
 ```powershell
-python -m http.server 8000
+git clone https://github.com/go-kawser/PenguinFashion-Modern-Winter-Wear-E-Commerce.git
 ```
 
-3. Open http://localhost:8000 in your browser.
+2. Open project:
 
-Optional: install `Live Server` in VS Code for live reload while editing.
+install `Live Server` in VS Code for live reload while editing.
 
 ---
 
-## Folder structure
-
-```
-project2/
-├─ index.html
-├─ pages/
-├─ css/
-│  ├─ style.css
-│  ├─ responsive.css
-│  └─ auth.css
-├─ js/
-│  ├─ products.js
-│  ├─ cart.js
-│  ├─ auth.js
-│  └─ theme.js
-├─ images/
-│  ├─ banners/
-│  ├─ icons/
-│  └─ products/
-└─ README.md
-```
-
-Key files:
+### Key files:
 
 - `index.html` — main landing page
 - `pages/shop.html` — product listing
@@ -130,12 +86,11 @@ Key files:
 
 ---
 
-## Customization examples
+### Customization examples
 
 - Replace product data with an API call in `js/products.js`:
 
 ```javascript
-// fetch products from a headless CMS or REST API
 async function loadProducts() {
   const resp = await fetch("/api/products");
   const products = await resp.json();
@@ -153,19 +108,19 @@ async function loadProducts() {
 
 ---
 
-## Deployment & CI recommendations
+### Deployment and CI recommendations
 
-For a production-looking demo, deploy to Netlify, Vercel, or GitHub Pages.
+**For a production-looking demo, deploy to Netlify, Vercel, or GitHub Pages.**
 
-- Netlify: connect the repo and deploy. Use Netlify Functions for serverless endpoints.
-- Vercel: instant static deployments with serverless function support.
-- GitHub Pages: good for simple demos; add a `gh-pages` branch or use Actions to deploy.
+- **Netlify:** connect the repo and deploy. Use Netlify Functions for serverless endpoints.
+- **Vercel:** instant static deployments with serverless function support.
+- **GitHub Pages:** good for simple demos; add a `gh-pages` branch or use Actions to deploy.
 
 CI tip: Add a lightweight GitHub Action to validate HTML/CSS and deploy to your chosen host. I can scaffold a `deploy.yml` action that runs on push to `main` and deploys to GitHub Pages or Netlify.
 
 ---
 
-## Accessibility & performance
+## Accessibility and performance
 
 - Semantic markup, keyboard focus styles, and ARIA attributes where necessary.
 - Images use `loading="lazy"` and explicit dimensions for layout stability.
@@ -173,9 +128,9 @@ CI tip: Add a lightweight GitHub Action to validate HTML/CSS and deploy to your 
 
 ---
 
-## Contributing
+### Contributing
 
-If you'd like to collaborate or accept contributions:
+**If you'd like to collaborate or accept contributions:**
 
 1. Fork the repo
 2. Create a topic branch (`feature/` or `fix/`)
@@ -185,15 +140,15 @@ I can add `CONTRIBUTING.md` and `CODE_OF_CONDUCT.md` if you want a polished cont
 
 ---
 
-## License & contact
+## License and Contact
 
 This project is available under the MIT License. Add a `LICENSE` file to the repo root (I can create one for you).
 
-For client inquiries or professional work, please link to your GitHub profile or add a business email here. Example: `hello@yourdomain.com`.
+For client inquiries or professional work, please link to your GitHub profile or add a business email here. **Email:** `abu.kayser.official@gmail.com`.
 
 ---
 
-If you want, I will:
+**If you want, I will:**
 
 - Add a large hero screenshot and product screenshots to `README.md` for visual impact.
 - Create a `LICENSE` file (MIT) and `CONTRIBUTING.md`.
@@ -201,4 +156,4 @@ If you want, I will:
 
 Tell me which of those to do next and I will implement it.
 
-_Last updated: October 31, 2025_
+_Last updated: November 01, 2025_

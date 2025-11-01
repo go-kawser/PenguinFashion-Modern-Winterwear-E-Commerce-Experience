@@ -1,4 +1,5 @@
 // Main JS Application Controller Is Here----------->>>>>>>>>>>>>
+// Note: This page i used many unsplash.com website images.
 // ----------------------------------------------------------------->>>>>>>>>>>>
 class PenguinFashionApp {
   constructor() {
@@ -119,7 +120,8 @@ class PenguinFashionApp {
         reviews: 95,
         inStock: true,
       },
-      // next time many products will be added here
+      // next time many products will be added here:
+      // i can add even more if needed here images:->>>>>>>>>>
       // -------------------------------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     ];
 
@@ -143,6 +145,7 @@ class PenguinFashionApp {
         description: "Stylish winter collection for women",
       },
       // next time many categories will be added here
+      // i can add even more if needed here images:---
       // -------------------------------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     ];
 
@@ -909,4 +912,4 @@ if (typeof module !== "undefined" && module.exports) {
 }
 
 // >>>>>>>>>>>>>>>>>>End>>>>>>>>>>>>>>>>>>>>>>>>
-// --------------------------------------------------
+// -------------------------------------------------->

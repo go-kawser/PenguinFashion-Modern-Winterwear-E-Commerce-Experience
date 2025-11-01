@@ -1,5 +1,7 @@
 // Product Management
 // ------------------------------------------------------------>>>
+// Note: This page i used many unsplash.com website images.
+// ------------------------------------------>
 class ProductManager {
   constructor() {
     this.products = [];
@@ -429,7 +431,8 @@ class ProductManager {
         inStock: true,
         tags: ["insoles", "warm", "footwear"],
       },
-      // You can add even more if needed
+      // i can add even more if needed here images:
+      // ------------------------------------------------------------------>>
     ];
   }
 
@@ -953,4 +956,4 @@ document.addEventListener("DOMContentLoaded", () => {
 if (typeof module !== "undefined" && module.exports) {
   module.exports = ProductManager;
 }
-// -------------------END--------------------->>>>>>>>>>>>>>>>>>>>
+// -------------------END--------------------->

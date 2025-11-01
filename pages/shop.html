@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="../css/auth.css" />
     <link rel="stylesheet" href="../css/responsive.css" />
 
-    <!-- Tailwind CSS with DaisyUI -->
+    <!-- Tailwind CSS with DaisyUI Component -->
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@3.1.0/dist/full.css"
       rel="stylesheet"
@@ -35,6 +35,7 @@
       rel="stylesheet"
     />
   </head>
+  <!-- Note: This page i used many unsplash.com website images. -->
   <body>
     <!-- Theme Switcher -->
     <div class="fixed top-5 right-5 z-50 theme-switcher">
@@ -42,9 +43,7 @@
         <button id="theme-toggle" class="btn btn-circle btn-primary shadow-lg">
           <i id="theme-icon" class="fas fa-moon"></i>
         </button>
-        <div id="theme-dropdown" class="theme-dropdown">
-          <!-- Theme options will be populated by JavaScript -->
-        </div>
+        <div id="theme-dropdown" class="theme-dropdown"></div>
       </div>
     </div>
 
@@ -81,9 +80,10 @@
             </button>
           </div>
         </div>
-        <div id="search-results" class="mt-4 max-h-60 overflow-y-auto hidden">
-          <!-- Search results will be populated by JavaScript -->
-        </div>
+        <div
+          id="search-results"
+          class="mt-4 max-h-60 overflow-y-auto hidden"
+        ></div>
       </div>
     </div>
 
@@ -485,9 +485,7 @@
               <div
                 tabindex="0"
                 class="mt-3 z-[1] card card-compact dropdown-content cart-dropdown-content w-80 bg-base-100 shadow"
-              >
-                <!-- Cart items will be populated by JavaScript -->
-              </div>
+              ></div>
             </div>
           </div>
         </div>
@@ -663,19 +661,17 @@
         <div
           id="products-container"
           class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
-        >
-          <!-- Products will be populated by JavaScript -->
-        </div>
+        ></div>
 
         <!-- Pagination -->
         <div class="flex justify-center mt-12">
           <div class="join">
-            <button class="join-item btn btn-outline">«</button>
+            <button class="join-item btn btn-outline"><<</button>
             <button class="join-item btn btn-active">1</button>
             <button class="join-item btn btn-outline">2</button>
             <button class="join-item btn btn-outline">3</button>
             <button class="join-item btn btn-outline">4</button>
-            <button class="join-item btn btn-outline">»</button>
+            <button class="join-item btn btn-outline">>></button>
           </div>
         </div>
       </div>
@@ -710,7 +706,7 @@
       </div>
     </section>
 
-    <!-- Footer - Fixed for consistency -->
+    <!-- Footer -->
     <footer class="footer p-10 bg-neutral text-neutral-content">
       <div class="container mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -776,7 +772,7 @@
         <div class="border-t border-base-300 mt-12 pt-8">
           <div class="flex flex-col lg:flex-row justify-between items-center">
             <div class="text-center lg:text-left mb-4 lg:mb-0">
-              <p>andcopy; 2024 Penguin Fashion. All rights reserved.</p>
+              <p>@ 2025 Penguin Fashion. All rights reserved.</p>
             </div>
             <div class="flex flex-wrap justify-center gap-4">
               <a href="#privacy" class="link link-hover">Privacy Policy</a>

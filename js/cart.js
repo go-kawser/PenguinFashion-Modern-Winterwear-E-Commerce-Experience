@@ -342,4 +342,4 @@ document.addEventListener("DOMContentLoaded", () => {
 if (typeof module !== "undefined" && module.exports) {
   module.exports = Cart;
 }
-// End
+// Shopping Cart JS End

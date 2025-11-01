@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="css/auth.css" />
     <link rel="stylesheet" href="css/responsive.css" />
 
-    <!-- Tailwind CSS with DaisyUI -->
+    <!-- Tailwind CSS with DaisyUI Component -->
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@3.1.0/dist/full.css"
       rel="stylesheet"
@@ -42,6 +42,7 @@
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="images/logo.png" />
   </head>
+  <!-- Note: This page i used many unsplash.com website images. -->
   <body>
     <!-- Theme Switcher -->
     <div class="fixed top-5 right-5 z-50 theme-switcher">
@@ -49,9 +50,7 @@
         <button id="theme-toggle" class="btn btn-circle btn-primary shadow-lg">
           <i id="theme-icon" class="fas fa-moon"></i>
         </button>
-        <div id="theme-dropdown" class="theme-dropdown">
-          <!-- Theme options will be populated by JavaScript -->
-        </div>
+        <div id="theme-dropdown" class="theme-dropdown"></div>
       </div>
     </div>
 
@@ -88,9 +87,10 @@
             </button>
           </div>
         </div>
-        <div id="search-results" class="mt-4 max-h-60 overflow-y-auto hidden">
-          <!-- Search results will be populated by JavaScript -->
-        </div>
+        <div
+          id="search-results"
+          class="mt-4 max-h-60 overflow-y-auto hidden"
+        ></div>
       </div>
     </div>
 
@@ -371,7 +371,7 @@
       </div>
     </div>
 
-    <!-- Header/Navigation -->
+    <!-- Header and Navigation -->
     <header
       class="sticky top-0 z-40 bg-base-100/80 backdrop-blur-md border-b border-base-300"
     >
@@ -400,8 +400,8 @@
                     <div class="mega-menu-column">
                       <h4>Men's Collection</h4>
                       <div class="mega-menu-links">
-                        <a href="#men-jackets">Jackets & Coats</a>
-                        <a href="#men-sweaters">Sweaters & Hoodies</a>
+                        <a href="#men-jackets">Jackets and Coats</a>
+                        <a href="#men-sweaters">Sweaters and Hoodies</a>
                         <a href="#men-pants">Winter Pants</a>
                         <a href="#men-accessories">Accessories</a>
                       </div>
@@ -409,8 +409,8 @@
                     <div class="mega-menu-column">
                       <h4>Women's Collection</h4>
                       <div class="mega-menu-links">
-                        <a href="#women-jackets">Jackets & Coats</a>
-                        <a href="#women-sweaters">Sweaters & Cardigans</a>
+                        <a href="#women-jackets">Jackets and Coats</a>
+                        <a href="#women-sweaters">Sweaters and Cardigans</a>
                         <a href="#women-dresses">Winter Dresses</a>
                         <a href="#women-accessories">Accessories</a>
                       </div>
@@ -505,9 +505,7 @@
               <div
                 tabindex="0"
                 class="mt-3 z-[1] card card-compact dropdown-content cart-dropdown-content w-80 bg-base-100 shadow"
-              >
-                <!-- Cart items will be populated by JavaScript -->
-              </div>
+              ></div>
             </div>
           </div>
         </div>
@@ -552,7 +550,7 @@
                 <div class="text-sm text-base-content/70">Happy Customers</div>
               </div>
               <div>
-                <div class="text-3xl font-bold text-primary">5★</div>
+                <div class="text-3xl font-bold text-primary">5</div>
                 <div class="text-sm text-base-content/70">Customer Rating</div>
               </div>
               <div>
@@ -785,9 +783,9 @@
               </div>
             </div>
           </div>
-
-          <!-- Add more product cards here as per js/products.js -->
-          <!-- For example, Ladies Jacket, etc. - Populated by JS -->
+          <!-- -------------------------------------------------------------------------------------------------- -->
+          <!-- if needed next time: Add more product cards here as per js/products.js -->
+          <!-- -------------------------------------------------------------------------------------------------- -->
         </div>
       </div>
     </section>
@@ -879,7 +877,9 @@
             </div>
           </div>
 
-          <!-- Add more from js/products.js -->
+          <!-- -------------------------------------------------------------------------------------------------- -->
+          <!-- Note: if needed: Add more product from js/products.js -->
+          <!-- -------------------------------------------------------------------------------------------------- -->
         </div>
       </div>
     </section>
@@ -1132,7 +1132,7 @@
             <div class="footer-links">
               <a href="pages/about.html#contact">Contact Us</a>
               <a href="#shipping">Shipping Info</a>
-              <a href="#returns">Returns & Exchanges</a>
+              <a href="#returns">Returns and Exchanges</a>
               <a href="#size-guide">Size Guide</a>
               <a href="#care-guide">Care Guide</a>
               <a href="#faq">FAQ</a>
@@ -1157,7 +1157,7 @@
         <div class="border-t border-base-300 mt-12 pt-8">
           <div class="flex flex-col lg:flex-row justify-between items-center">
             <div class="text-center lg:text-left mb-4 lg:mb-0">
-              <p>&copy; 2024 Penguin Fashion. All rights reserved.</p>
+              <p>&copy; 2025 Penguin Fashion. All rights reserved.</p>
             </div>
             <div class="flex flex-wrap justify-center gap-4">
               <a href="#privacy" class="link link-hover">Privacy Policy</a>

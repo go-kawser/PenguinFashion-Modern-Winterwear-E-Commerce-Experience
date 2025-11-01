@@ -27,7 +27,7 @@
   }
 
   .mega-menu {
-    display: none; /* Hide mega menu on smaller screens */
+    display: none;
   }
 
   .product-grid {
@@ -105,7 +105,7 @@
   }
 
   .mobile-menu {
-    width: 80%; /* Better mobile menu width */
+    width: 80%;
   }
 }
 
@@ -206,7 +206,7 @@
   }
 }
 
-/* Print Styles */
+/* @media Print styles here: */
 @media print {
   .navbar,
   .footer,

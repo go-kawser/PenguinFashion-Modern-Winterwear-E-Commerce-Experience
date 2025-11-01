@@ -187,7 +187,8 @@ class ThemeManager {
     );
   }
 
-  // Public methods
+  // Public methods:
+  // ------------------------>
   getCurrentTheme() {
     return this.currentTheme;
   }
